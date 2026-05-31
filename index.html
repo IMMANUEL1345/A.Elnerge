@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A. Elnerge Technologies – Intelligent Business Applications</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #8B6B2E;
+    --dark: #0A0A08;
+    --dark2: #111110;
+    --dark3: #1A1A18;
+    --dark4: #242420;
+    --dark5: #2E2E2A;
+    --cream: #F5F0E8;
+    --cream2: #EDE6D6;
+    --text-muted: #9A9488;
+    --text-mid: #C4BDB0;
+    --green: #2D6A4F;
+    --green-light: #52B788;
+    --red-a: #C1440E;
+    --blue-a: #1B4D8E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(10,10,8,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+  }
+  .nav-logo { display: flex; flex-direction: column; gap: 1px; }
+  .nav-logo .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+  .nav-logo .sub { font-size: 0.6rem; color: var(--text-muted); letter-spacing: 0.2em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-mid); font-size: 0.82rem; text-decoration: none;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .btn-nav {
+    background: transparent; border: 0.5px solid var(--gold);
+    color: var(--gold); padding: 0.5rem 1.5rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .btn-nav:hover { background: var(--gold); color: var(--dark); }
+  .chat-trigger-btn {
+    background: var(--gold); border: none; width: 36px; height: 36px;
+    border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; transition: transform 0.3s;
+    color: var(--dark); font-size: 1rem;
+  }
+  .chat-trigger-btn:hover { transform: scale(1.1); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(45,106,79,0.08) 0%, transparent 60%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(201,168,76,0.8) 60px, rgba(201,168,76,0.8) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(201,168,76,0.8) 60px, rgba(201,168,76,0.8) 61px);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 780px; }
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 0.7rem;
+    color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase;
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 40px; height: 0.5px; background: var(--gold); }
+  .hero-h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05; font-weight: 700;
+    color: var(--cream); margin-bottom: 0.3rem;
+  }
+  .hero-h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 1rem; color: var(--text-mid); line-height: 1.8;
+    max-width: 560px; margin: 1.5rem 0 2.5rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    border: none; padding: 0.85rem 2.2rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    border: 0.5px solid rgba(245,240,232,0.3); padding: 0.85rem 2.2rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-badge {
+    position: absolute; right: 4rem; bottom: 6rem;
+    border: 0.5px solid rgba(201,168,76,0.3);
+    padding: 1.2rem 1.8rem; text-align: center;
+  }
+  .hero-badge .big { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .hero-badge .small { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.3rem; }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: var(--text-muted); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .hero-scroll::after {
+    content: ''; width: 0.5px; height: 40px; background: linear-gradient(to bottom, var(--gold-dim), transparent);
+  }
+  @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-label {
+    font-family: 'Space Mono', monospace; font-size: 0.65rem;
+    color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+  }
+  .section-label::before { content: ''; width: 30px; height: 0.5px; background: var(--gold); }
+  .section-title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--cream); margin-bottom: 1rem; }
+  .section-title span { color: var(--gold); }
+  .section-desc { color: var(--text-mid); line-height: 1.8; max-width: 560px; font-size: 0.95rem; }
+  .divider { width: 60px; height: 0.5px; background: var(--gold-dim); margin: 2rem 0; }
+
+  /* ── BRAND STORY ── */
+  #story { background: var(--dark2); }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
+  .name-blocks { display: flex; flex-direction: column; gap: 1.5rem; }
+  .name-block {
+    display: flex; align-items: flex-start; gap: 1.5rem;
+    padding: 1.5rem; border-left: 2px solid var(--gold-dim);
+    background: rgba(201,168,76,0.03);
+    transition: border-color 0.3s, background 0.3s;
+    animation: fadeSlideIn 0.8s ease both;
+  }
+  .name-block:nth-child(2) { animation-delay: 0.15s; }
+  .name-block:nth-child(3) { animation-delay: 0.3s; }
+  .name-block:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+  @keyframes fadeSlideIn { from { opacity:0; transform: translateX(-20px); } to { opacity:1; transform: translateX(0); } }
+  .name-letters {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 700;
+    color: var(--gold); line-height: 1; min-width: 80px;
+  }
+  .name-meaning h4 { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; font-family: 'Space Mono', monospace; font-weight: 400; }
+  .name-meaning p { color: var(--text-mid); font-size: 0.9rem; line-height: 1.6; }
+  .name-meaning strong { color: var(--cream); font-weight: 400; }
+  .story-text h3 { font-size: 2rem; color: var(--cream); margin-bottom: 1.5rem; line-height: 1.3; }
+  .story-text p { color: var(--text-mid); line-height: 1.9; font-size: 0.92rem; margin-bottom: 1rem; }
+  .story-quote {
+    margin-top: 2rem; padding: 1.5rem;
+    border: 0.5px solid rgba(201,168,76,0.2);
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    color: var(--cream); line-height: 1.6; font-style: italic;
+  }
+  .story-quote span { color: var(--gold); }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--dark); }
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 4rem; background: rgba(201,168,76,0.08); }
+  .product-card {
+    background: var(--dark); padding: 2.5rem 2rem;
+    cursor: pointer; transition: background 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .product-card::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover { background: var(--dark3); }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-card:hover .demo-btn { opacity: 1; transform: translateY(0); }
+  .card-industry {
+    font-family: 'Space Mono', monospace; font-size: 0.6rem;
+    color: var(--gold-dim); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .card-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .card-name { font-size: 1.5rem; color: var(--cream); margin-bottom: 0.3rem; }
+  .card-name span { color: var(--gold); }
+  .card-tagline { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem; font-style: italic; }
+  .card-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .card-features li { font-size: 0.8rem; color: var(--text-mid); display: flex; align-items: flex-start; gap: 0.6rem; line-height: 1.5; }
+  .card-features li::before { content: '—'; color: var(--gold-dim); flex-shrink: 0; margin-top: 1px; }
+  .demo-btn {
+    margin-top: 1.5rem; background: transparent; border: 0.5px solid var(--gold);
+    color: var(--gold); padding: 0.5rem 1.2rem; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: all 0.3s;
+    opacity: 0; transform: translateY(8px);
+  }
+  .demo-btn:hover { background: var(--gold); color: var(--dark); }
+
+  /* ── DEMO ── */
+  #demo { background: var(--dark2); }
+  .demo-tabs {
+    display: flex; gap: 0; margin-top: 3rem; margin-bottom: 0;
+    border-bottom: 0.5px solid rgba(201,168,76,0.15); overflow-x: auto;
+  }
+  .demo-tab {
+    padding: 0.8rem 1.5rem; background: transparent; border: none;
+    color: var(--text-muted); font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s; white-space: nowrap;
+    border-bottom: 2px solid transparent; margin-bottom: -0.5px;
+  }
+  .demo-tab:hover { color: var(--cream); }
+  .demo-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .demo-stage {
+    background: var(--dark3); border: 0.5px solid rgba(201,168,76,0.1);
+    min-height: 480px; position: relative; overflow: hidden;
+  }
+  .demo-panel { display: none; animation: fadeIn 0.4s ease; }
+  .demo-panel.active { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .demo-screens-container { display: flex; width: 100%; }
+  .demo-sidebar {
+    width: 220px; flex-shrink: 0; background: var(--dark4);
+    border-right: 0.5px solid rgba(201,168,76,0.1);
+    padding: 1.5rem 0;
+  }
+  .demo-sidebar-title {
+    font-family: 'Space Mono', monospace; font-size: 0.58rem;
+    color: var(--gold-dim); letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0 1.2rem; margin-bottom: 1rem;
+  }
+  .demo-screen-nav { list-style: none; }
+  .demo-screen-nav li {
+    padding: 0.65rem 1.2rem; font-size: 0.78rem; color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s; border-left: 2px solid transparent;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .demo-screen-nav li:hover { color: var(--cream); background: rgba(201,168,76,0.04); }
+  .demo-screen-nav li.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,168,76,0.06); }
+  .demo-screen-nav li .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .demo-content-area {
+    flex: 1; padding: 2rem; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .screen-display { display: none; flex: 1; flex-direction: column; gap: 1rem; animation: fadeIn 0.3s ease; }
+  .screen-display.active { display: flex; }
+  .screen-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+  .screen-title { font-size: 1.1rem; color: var(--cream); }
+  .screen-badge {
+    font-family: 'Space Mono', monospace; font-size: 0.6rem;
+    background: rgba(201,168,76,0.12); color: var(--gold);
+    padding: 0.2rem 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .mock-ui {
+    flex: 1; background: var(--dark5); border: 0.5px solid rgba(201,168,76,0.08);
+    border-radius: 2px; padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem;
+  }
+  .mock-row { display: flex; gap: 0.8rem; align-items: center; }
+  .mock-label { font-size: 0.7rem; color: var(--text-muted); min-width: 80px; letter-spacing: 0.05em; }
+  .mock-val { font-size: 0.82rem; color: var(--cream); }
+  .mock-bar-wrap { flex: 1; height: 6px; background: var(--dark4); border-radius: 3px; overflow: hidden; }
+  .mock-bar { height: 100%; background: var(--gold); border-radius: 3px; transition: width 1s ease; }
+  .mock-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+  .mock-table th { color: var(--text-muted); text-align: left; padding: 0.4rem 0.6rem; border-bottom: 0.5px solid rgba(201,168,76,0.1); font-weight: 400; font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .mock-table td { color: var(--cream); padding: 0.5rem 0.6rem; border-bottom: 0.5px solid rgba(255,255,255,0.04); }
+  .mock-stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .mock-stat { background: var(--dark4); padding: 0.8rem; text-align: center; }
+  .mock-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .mock-stat .lbl { font-size: 0.62rem; color: var(--text-muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .mock-pill {
+    display: inline-block; padding: 0.15rem 0.6rem; font-size: 0.65rem;
+    border-radius: 20px; letter-spacing: 0.05em;
+  }
+  .pill-green { background: rgba(82,183,136,0.15); color: var(--green-light); }
+  .pill-gold { background: rgba(201,168,76,0.15); color: var(--gold); }
+  .pill-red { background: rgba(193,68,14,0.15); color: #E07050; }
+  .mock-btn-sm {
+    background: var(--gold); color: var(--dark); border: none;
+    padding: 0.35rem 0.8rem; font-size: 0.68rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; letter-spacing: 0.08em;
+  }
+  .screen-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.5rem; }
+
+  /* BuildSmart Calculator */
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .calc-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .calc-field label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Space Mono', monospace; }
+  .calc-field select, .calc-field input {
+    background: var(--dark4); border: 0.5px solid rgba(201,168,76,0.2);
+    color: var(--cream); padding: 0.5rem 0.8rem; font-size: 0.82rem;
+    font-family: 'DM Sans', sans-serif; outline: none; width: 100%;
+  }
+  .calc-field select:focus, .calc-field input:focus { border-color: var(--gold); }
+  .calc-results { margin-top: 1rem; }
+  .calc-results-title { font-size: 0.68rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Space Mono', monospace; margin-bottom: 0.8rem; }
+  .material-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.5rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.04); }
+  .material-icon { font-size: 1rem; width: 24px; }
+  .material-name { font-size: 0.78rem; color: var(--text-mid); flex: 1; }
+  .material-qty { font-family: 'Space Mono', monospace; font-size: 0.82rem; color: var(--gold); font-weight: 700; }
+  .material-unit { font-size: 0.65rem; color: var(--text-muted); margin-left: 0.2rem; }
+
+  .demo-nav-btns { display: flex; gap: 0.5rem; justify-content: flex-end; padding: 1rem 2rem; border-top: 0.5px solid rgba(201,168,76,0.08); }
+  .demo-nav-btn {
+    background: transparent; border: 0.5px solid rgba(201,168,76,0.2);
+    color: var(--text-mid); padding: 0.5rem 1.2rem; font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: all 0.3s;
+  }
+  .demo-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .demo-nav-btn.primary { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+  .demo-nav-btn.primary:hover { background: var(--gold-light); }
+
+  /* ── WHY ELNERGE ── */
+  #why { background: var(--dark); }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
+  .why-card { text-align: center; padding: 2rem 1rem; }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 700;
+    color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 1rem;
+  }
+  .why-title { font-size: 1.2rem; color: var(--cream); margin-bottom: 0.8rem; }
+  .why-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── INDUSTRIES ── */
+  #industries { background: var(--dark2); }
+  .industries-strip { display: flex; gap: 0; margin-top: 3rem; background: rgba(201,168,76,0.06); border: 0.5px solid rgba(201,168,76,0.1); }
+  .industry-item {
+    flex: 1; padding: 2rem 1rem; text-align: center;
+    border-right: 0.5px solid rgba(201,168,76,0.1); transition: background 0.3s;
+    cursor: default;
+  }
+  .industry-item:last-child { border-right: none; }
+  .industry-item:hover { background: rgba(201,168,76,0.08); }
+  .industry-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .industry-name { font-size: 0.72rem; color: var(--text-mid); letter-spacing: 0.12em; text-transform: uppercase; font-family: 'Space Mono', monospace; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--dark3); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; align-items: start; }
+  .contact-info h3 { font-size: 2rem; color: var(--cream); margin-bottom: 1.5rem; line-height: 1.3; }
+  .contact-info p { color: var(--text-mid); line-height: 1.8; font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .contact-detail { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; font-size: 0.85rem; color: var(--text-mid); }
+  .contact-detail strong { color: var(--gold); font-weight: 400; min-width: 70px; font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-field label { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.15em; text-transform: uppercase; font-family: 'Space Mono', monospace; }
+  .form-field input, .form-field select, .form-field textarea {
+    background: var(--dark4); border: 0.5px solid rgba(201,168,76,0.15);
+    color: var(--cream); padding: 0.8rem 1rem; font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif; outline: none; width: 100%;
+    transition: border-color 0.3s;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--gold); }
+  .form-field textarea { resize: vertical; min-height: 100px; }
+  .form-field select option { background: var(--dark4); }
+  .btn-submit {
+    background: var(--gold); color: var(--dark); border: none;
+    padding: 1rem 2.5rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+    align-self: flex-start; margin-top: 0.5rem;
+  }
+  .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); border-top: 0.5px solid rgba(201,168,76,0.1);
+    padding: 3rem 4rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand .wordmark { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); }
+  .footer-brand p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; margin-top: 0.8rem; max-width: 260px; }
+  .footer-col h5 { font-size: 0.65rem; color: var(--gold-dim); letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Space Mono', monospace; font-weight: 400; margin-bottom: 1rem; }
+  .footer-col a { display: block; color: var(--text-muted); font-size: 0.82rem; text-decoration: none; margin-bottom: 0.5rem; transition: color 0.3s; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 0.5px solid rgba(201,168,76,0.08); font-size: 0.72rem; color: var(--text-muted); }
+
+  /* ── AI CHAT ── */
+  #ai-chat {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem;
+  }
+  .chat-window {
+    width: 360px; background: var(--dark2);
+    border: 0.5px solid rgba(201,168,76,0.25);
+    display: flex; flex-direction: column;
+    max-height: 500px; overflow: hidden;
+    display: none; animation: slideUp 0.3s ease;
+  }
+  .chat-window.open { display: flex; }
+  @keyframes slideUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+  .chat-header {
+    padding: 1rem 1.2rem; background: var(--dark3);
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .chat-header-info { display: flex; align-items: center; gap: 0.8rem; }
+  .chat-avatar {
+    width: 32px; height: 32px; background: var(--gold);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; font-weight: 700;
+    color: var(--dark);
+  }
+  .chat-header-text .name { font-size: 0.82rem; color: var(--cream); font-weight: 500; }
+  .chat-header-text .status { font-size: 0.65rem; color: var(--green-light); display: flex; align-items: center; gap: 0.3rem; }
+  .chat-header-text .status::before { content: ''; width: 5px; height: 5px; background: var(--green-light); border-radius: 50%; }
+  .chat-close { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; transition: color 0.2s; }
+  .chat-close:hover { color: var(--cream); }
+  .chat-messages { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.8rem; min-height: 200px; max-height: 300px; }
+  .chat-messages::-webkit-scrollbar { width: 3px; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--dark5); }
+  .msg { display: flex; gap: 0.6rem; align-items: flex-start; }
+  .msg.user { flex-direction: row-reverse; }
+  .msg-bubble {
+    max-width: 80%; padding: 0.65rem 0.9rem; font-size: 0.8rem; line-height: 1.6;
+    border-radius: 2px;
+  }
+  .msg.ai .msg-bubble { background: var(--dark4); color: var(--cream); border-left: 2px solid var(--gold-dim); }
+  .msg.user .msg-bubble { background: rgba(201,168,76,0.15); color: var(--cream); border-right: 2px solid var(--gold); }
+  .msg-avatar { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; margin-top: 2px; }
+  .msg.ai .msg-avatar { background: var(--gold); color: var(--dark); font-family: 'Cormorant Garamond', serif; }
+  .msg.user .msg-avatar { background: var(--dark5); color: var(--text-mid); }
+  .chat-chips { padding: 0.6rem 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem; border-top: 0.5px solid rgba(201,168,76,0.08); }
+  .chip {
+    background: var(--dark4); border: 0.5px solid rgba(201,168,76,0.15);
+    color: var(--text-muted); font-size: 0.68rem; padding: 0.3rem 0.7rem;
+    cursor: pointer; transition: all 0.2s; border-radius: 20px; white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+  .chat-input-row {
+    display: flex; gap: 0; padding: 0.8rem 1rem;
+    border-top: 0.5px solid rgba(201,168,76,0.1);
+  }
+  #chat-input {
+    flex: 1; background: var(--dark4); border: 0.5px solid rgba(201,168,76,0.15);
+    border-right: none; color: var(--cream); padding: 0.6rem 0.8rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.8rem; outline: none;
+  }
+  #chat-input:focus { border-color: var(--gold); }
+  #chat-send {
+    background: var(--gold); border: none; color: var(--dark);
+    padding: 0.6rem 1rem; cursor: pointer; font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  #chat-send:hover { background: var(--gold-light); }
+  .chat-fab {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--gold); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+    transition: all 0.3s; color: var(--dark);
+  }
+  .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(201,168,76,0.4); }
+  .typing-indicator { display: flex; gap: 4px; align-items: center; padding: 0.5rem 0; }
+  .typing-indicator span { width: 6px; height: 6px; background: var(--gold-dim); border-radius: 50%; animation: typingPulse 1.2s ease-in-out infinite; }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingPulse { 0%,60%,100% { opacity:0.3; transform: translateY(0); } 30% { opacity:1; transform: translateY(-4px); } }
+
+  /* Animations */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 4rem; }
+    .hero-badge { display: none; }
+    .story-grid, .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .industries-strip { flex-wrap: wrap; }
+    .industry-item { min-width: 33%; }
+    .demo-sidebar { display: none; }
+    .chat-window { width: 300px; }
+  }
+  @media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .mock-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="wordmark">Elnerge</div>
+    <div class="sub">A. Elnerge Technologies</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#demo">Demo</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Demo</button>
+    <button class="chat-trigger-btn" onclick="toggleChat()" title="Ask our AI assistant">💬</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A. Elnerge Technologies · Ghana</div>
+    <h1 class="hero-h1">Intelligently<br>Constructed.<br><span>Personally</span> Committed.</h1>
+    <p class="hero-sub">We are creators of the IBA Suite — specialized software that automates operations for Retail, Education, Hospitality, Construction, Transport, and Faith-Based communities across Africa.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore the Suite</button>
+      <button class="btn-outline" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try Demo</button>
+    </div>
+  </div>
+  <div class="hero-badge">
+    <div class="big">6</div>
+    <div class="small">Industries<br>One Suite</div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- BRAND STORY -->
+<section id="story">
+  <div class="section-label">Our Origin</div>
+  <h2 class="section-title">A Name Built From<br>A <span>Name Unlike Any Other</span></h2>
+  <div class="divider"></div>
+  <div class="story-grid fade-up">
+    <div class="name-blocks">
+      <div class="name-block">
+        <div class="name-letters">EL</div>
+        <div class="name-meaning">
+          <h4>From Immanuel</h4>
+          <p>The last two letters of <strong>Immanuel</strong>. The promise of purpose.</p>
+        </div>
+      </div>
+      <div class="name-block">
+        <div class="name-letters">NERGE</div>
+        <div class="name-meaning">
+          <h4>From Boanerge</h4>
+          <p>The last five letters of <strong>Boanerge</strong>. The strength to build.</p>
+        </div>
+      </div>
+      <div class="name-block">
+        <div class="name-letters">A.</div>
+        <div class="name-meaning">
+          <h4>From Agbemabiase</h4>
+          <p>The initial of <strong>Agbemabiase</strong>. The legacy of family.</p>
+        </div>
+      </div>
+    </div>
+    <div class="story-text">
+      <h3>Every line of code carries a founder's signature.</h3>
+      <p>A. Elnerge Technologies is not named after a place, a trend, or an acronym already in use by a dozen other companies. It is built from the very letters of our founder's name: Immanuel Boanerge Agbemabiase.</p>
+      <p>Beginning with a final-year project tackling transport logistics, Immanuel saw a universal truth: every industry — from the local retailer to the busy construction project manager — is held back by fragmented, non-intelligent tools.</p>
+      <p>This sparked the creation of the IBA Suite: a family of Intelligent Business Applications where each product is deeply specialized for African business realities.</p>
+      <div class="story-quote">
+        "That's Intelligent. That's Business. That's <span>Elnerge.</span>"
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-label">The IBA Suite</div>
+  <h2 class="section-title">Intelligent Business Applications<br>for <span>Every Industry</span></h2>
+  <p class="section-desc">Six deeply specialized applications. One unified promise. Built for Africa, by Africa.</p>
+  <div class="divider"></div>
+  <div class="products-grid fade-up">
+    <div class="product-card" onclick="openDemo('tradedesk')">
+      <div class="card-industry">🛒 Retail &amp; Commerce</div>
+      <div class="card-name">IBA <span>TradeDesk</span></div>
+      <div class="card-tagline">Sell Smarter. Stock Smarter.</div>
+      <ul class="card-features">
+        <li>Intelligent Point of Sale with customer history</li>
+        <li>Real-time stock sync — no overselling</li>
+        <li>Automated purchase orders at minimum stock</li>
+        <li>Multi-location stock tracking &amp; barcode support</li>
+      </ul>
+      <button class="demo-btn">See Demo →</button>
+    </div>
+    <div class="product-card" onclick="openDemo('educlass')">
+      <div class="card-industry">🎓 Education</div>
+      <div class="card-name">IBA <span>EduClass</span></div>
+      <div class="card-tagline">The Intelligent Classroom Manager.</div>
+      <ul class="card-features">
+        <li>Student enrollment &amp; records management</li>
+        <li>Attendance tracking &amp; report card generation</li>
+        <li>Fee &amp; payment management</li>
+        <li>Parent-teacher communication portal</li>
+      </ul>
+      <button class="demo-btn">See Demo →</button>
+    </div>
+    <div class="product-card" onclick="openDemo('sanctuary')">
+      <div class="card-industry">⛪ Faith &amp; Community</div>
+      <div class="card-name">IBA <span>Sanctuary</span></div>
+      <div class="card-tagline">The Intelligent Church Manager.</div>
+      <ul class="card-features">
+        <li>Member &amp; family database with photo records</li>
+        <li>Donation &amp; tithe management with receipts</li>
+        <li>Event &amp; service scheduling</li>
+        <li>Secure prayer request &amp; announcement tools</li>
+      </ul>
+      <button class="demo-btn">See Demo →</button>
+    </div>
+    <div class="product-card" onclick="openDemo('buildsmart')">
+      <div class="card-industry">🏗️ Construction</div>
+      <div class="card-name">IBA <span>BuildSmart</span></div>
+      <div class="card-tagline">The Intelligent Project Planner.</div>
+      <ul class="card-features">
+        <li>Material quantity calculator per project phase</li>
+        <li>Real-time cost estimation (local market prices)</li>
+        <li>Phase-by-phase project breakdown</li>
+        <li>Contractor &amp; supplier management</li>
+      </ul>
+      <button class="demo-btn">See Demo →</button>
+    </div>
+    <div class="product-card" onclick="openDemo('innvue')">
+      <div class="card-industry">🏨 Hospitality</div>
+      <div class="card-name">IBA <span>InnVue</span></div>
+      <div class="card-tagline">The Intelligent Hospitality Hub.</div>
+      <ul class="card-features">
+        <li>Front desk &amp; reservation management</li>
+        <li>Online booking integration</li>
+        <li>Room status &amp; housekeeping coordination</li>
+        <li>Guest history &amp; billing tracking</li>
+      </ul>
+      <button class="demo-btn">See Demo →</button>
+    </div>
+    <div class="product-card" onclick="openDemo('transitflow')">
+      <div class="card-industry">🚌 Transport</div>
+      <div class="card-name">IBA <span>TransitFlow</span></div>
+      <div class="card-tagline">The Intelligent Fleet Organizer.</div>
+      <ul class="card-features">
+        <li>Fleet registration &amp; vehicle tracking</li>
+        <li>Route planning &amp; schedule management</li>
+        <li>Driver &amp; conductor assignment</li>
+        <li>Maintenance &amp; fuel consumption logs</li>
+      </ul>
+      <button class="demo-btn">See Demo →</button>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="section-label">Interactive Demo</div>
+  <h2 class="section-title">See It <span>In Action</span></h2>
+  <p class="section-desc">Walk through each product. No sign-up required. Ask our AI assistant anything as you explore.</p>
+  <div class="divider"></div>
+
+  <div class="demo-tabs">
+    <button class="demo-tab active" onclick="switchDemo('tradedesk',this)">🛒 TradeDesk</button>
+    <button class="demo-tab" onclick="switchDemo('educlass',this)">🎓 EduClass</button>
+    <button class="demo-tab" onclick="switchDemo('sanctuary',this)">⛪ Sanctuary</button>
+    <button class="demo-tab" onclick="switchDemo('buildsmart',this)">🏗️ BuildSmart</button>
+    <button class="demo-tab" onclick="switchDemo('innvue',this)">🏨 InnVue</button>
+    <button class="demo-tab" onclick="switchDemo('transitflow',this)">🚌 TransitFlow</button>
+  </div>
+
+  <div class="demo-stage">
+
+    <!-- TRADEDESK -->
+    <div class="demo-panel active" id="panel-tradedesk">
+      <div class="demo-screens-container">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-title">TradeDesk Screens</div>
+          <ul class="demo-screen-nav" id="nav-tradedesk">
+            <li class="active" onclick="showScreen('tradedesk',0,this)"><span class="dot"></span>Sales Dashboard</li>
+            <li onclick="showScreen('tradedesk',1,this)"><span class="dot"></span>POS Counter</li>
+            <li onclick="showScreen('tradedesk',2,this)"><span class="dot"></span>Stockroom</li>
+            <li onclick="showScreen('tradedesk',3,this)"><span class="dot"></span>Supplier Orders</li>
+          </ul>
+        </div>
+        <div class="demo-content-area">
+          <div class="screen-display active" id="tradedesk-0">
+            <div class="screen-header"><span class="screen-title">Sales Dashboard</span><span class="screen-badge">Live View</span></div>
+            <div class="mock-ui">
+              <div class="mock-stat-grid">
+                <div class="mock-stat"><div class="num">GH₵4,820</div><div class="lbl">Today's Sales</div></div>
+                <div class="mock-stat"><div class="num">134</div><div class="lbl">Transactions</div></div>
+                <div class="mock-stat"><div class="num">12</div><div class="lbl">Low Stock Alerts</div></div>
+              </div>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label">Indomie (carton)</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:25%;background:#C1440E"></div></div><div class="mock-val" style="color:#E07050;font-size:0.72rem">LOW</div></div>
+              <div class="mock-row"><div class="mock-label">Rice 50kg</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:72%"></div></div><div class="mock-val" style="font-size:0.72rem;color:var(--text-muted)">72%</div></div>
+              <div class="mock-row"><div class="mock-label">Cooking Oil (ctn)</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:45%"></div></div><div class="mock-val" style="font-size:0.72rem;color:var(--text-muted)">45%</div></div>
+            </div>
+            <div class="screen-desc">Real-time overview of daily sales, top-selling products, and instant low-stock warnings — all on one screen.</div>
+          </div>
+          <div class="screen-display" id="tradedesk-1">
+            <div class="screen-header"><span class="screen-title">POS Counter</span><span class="screen-badge">TradeDesk Counter</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Customer</div><div class="mock-val">Walk-in Customer</div></div>
+              <table class="mock-table">
+                <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
+                <tbody>
+                  <tr><td>Indomie Chicken</td><td>3</td><td>GH₵2.50</td><td>GH₵7.50</td></tr>
+                  <tr><td>Milo 400g</td><td>1</td><td>GH₵28.00</td><td>GH₵28.00</td></tr>
+                  <tr><td>Toilet Rolls (6pk)</td><td>2</td><td>GH₵15.00</td><td>GH₵30.00</td></tr>
+                </tbody>
+              </table>
+              <div class="mock-row" style="margin-top:0.3rem"><div class="mock-label" style="font-weight:500;color:var(--cream)">Total</div><div class="mock-val" style="color:var(--gold);font-size:1rem;font-family:'Cormorant Garamond',serif;font-weight:700">GH₵65.50</div><button class="mock-btn-sm" style="margin-left:auto">Checkout</button></div>
+            </div>
+            <div class="screen-desc">Fast checkout with multiple payment methods, digital receipts, and automatic stock deduction on every sale.</div>
+          </div>
+          <div class="screen-display" id="tradedesk-2">
+            <div class="screen-header"><span class="screen-title">Stockroom Manager</span><span class="screen-badge">TradeDesk Stockroom</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Product</th><th>In Stock</th><th>Min Level</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Indomie (carton)</td><td>8</td><td>20</td><td><span class="mock-pill pill-red">Reorder</span></td></tr>
+                  <tr><td>Rice 50kg bags</td><td>36</td><td>15</td><td><span class="mock-pill pill-green">OK</span></td></tr>
+                  <tr><td>Cooking Oil 5L</td><td>22</td><td>10</td><td><span class="mock-pill pill-green">OK</span></td></tr>
+                  <tr><td>Milo 400g</td><td>14</td><td>12</td><td><span class="mock-pill pill-gold">Watch</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Complete warehouse visibility. System auto-triggers purchase orders when stock drops below minimum levels.</div>
+          </div>
+          <div class="screen-display" id="tradedesk-3">
+            <div class="screen-header"><span class="screen-title">Supplier Order</span><span class="screen-badge">Auto-Generated</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Supplier</div><div class="mock-val">Unilever Ghana Ltd.</div></div>
+              <div class="mock-row"><div class="mock-label">Order No.</div><div class="mock-val" style="font-family:'Space Mono',monospace;font-size:0.75rem">PO-2024-00841</div></div>
+              <div class="mock-row"><div class="mock-label">Status</div><div><span class="mock-pill pill-gold">Pending Approval</span></div></div>
+              <table class="mock-table" style="margin-top:0.5rem">
+                <thead><tr><th>Item</th><th>Order Qty</th><th>Unit Cost</th><th>Total</th></tr></thead>
+                <tbody>
+                  <tr><td>Indomie Chicken (ctn)</td><td>50</td><td>GH₵32.00</td><td>GH₵1,600</td></tr>
+                </tbody>
+              </table>
+              <div class="mock-row" style="margin-top:0.5rem"><button class="mock-btn-sm">Approve &amp; Send</button></div>
+            </div>
+            <div class="screen-desc">Purchase orders are automatically generated with supplier details, lead times, and pricing — ready for one-click approval.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCLASS -->
+    <div class="demo-panel" id="panel-educlass">
+      <div class="demo-screens-container">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-title">EduClass Screens</div>
+          <ul class="demo-screen-nav" id="nav-educlass">
+            <li class="active" onclick="showScreen('educlass',0,this)"><span class="dot"></span>School Overview</li>
+            <li onclick="showScreen('educlass',1,this)"><span class="dot"></span>Student Records</li>
+            <li onclick="showScreen('educlass',2,this)"><span class="dot"></span>Attendance</li>
+            <li onclick="showScreen('educlass',3,this)"><span class="dot"></span>Report Card</li>
+          </ul>
+        </div>
+        <div class="demo-content-area">
+          <div class="screen-display active" id="educlass-0">
+            <div class="screen-header"><span class="screen-title">School Dashboard</span><span class="screen-badge">Term 2, 2024</span></div>
+            <div class="mock-ui">
+              <div class="mock-stat-grid">
+                <div class="mock-stat"><div class="num">842</div><div class="lbl">Enrolled Students</div></div>
+                <div class="mock-stat"><div class="num">36</div><div class="lbl">Teaching Staff</div></div>
+                <div class="mock-stat"><div class="num">GH₵12,400</div><div class="lbl">Fees This Week</div></div>
+              </div>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label">Attendance Today</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:91%"></div></div><div class="mock-val" style="font-size:0.75rem;color:var(--text-muted)">91%</div></div>
+              <div class="mock-row"><div class="mock-label">Fees Collected</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:68%"></div></div><div class="mock-val" style="font-size:0.75rem;color:var(--text-muted)">68%</div></div>
+            </div>
+            <div class="screen-desc">A complete snapshot of your school's performance — enrollment, attendance, and fee collection at a glance.</div>
+          </div>
+          <div class="screen-display" id="educlass-1">
+            <div class="screen-header"><span class="screen-title">Student Record</span><span class="screen-badge">Profile View</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Name</div><div class="mock-val">Abena Mensah</div></div>
+              <div class="mock-row"><div class="mock-label">Class</div><div class="mock-val">JHS 2B</div></div>
+              <div class="mock-row"><div class="mock-label">Student ID</div><div class="mock-val" style="font-family:'Space Mono',monospace;font-size:0.75rem">STU-2022-0491</div></div>
+              <div class="mock-row"><div class="mock-label">Guardian</div><div class="mock-val">Kwame Mensah (Father)</div></div>
+              <div class="mock-row"><div class="mock-label">Fee Status</div><div><span class="mock-pill pill-green">Paid – Term 2</span></div></div>
+              <div class="mock-row"><div class="mock-label">Avg. Grade</div><div class="mock-val" style="color:var(--gold)">78.4% — B+</div></div>
+            </div>
+            <div class="screen-desc">Every student's academic, attendance, and financial record in one profile — accessible in seconds.</div>
+          </div>
+          <div class="screen-display" id="educlass-2">
+            <div class="screen-header"><span class="screen-title">Class Attendance</span><span class="screen-badge">JHS 2B — Today</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Student</th><th>Status</th><th>Time</th></tr></thead>
+                <tbody>
+                  <tr><td>Abena Mensah</td><td><span class="mock-pill pill-green">Present</span></td><td>07:42am</td></tr>
+                  <tr><td>Kofi Asante</td><td><span class="mock-pill pill-green">Present</span></td><td>07:55am</td></tr>
+                  <tr><td>Ama Boateng</td><td><span class="mock-pill pill-red">Absent</span></td><td>—</td></tr>
+                  <tr><td>Yaw Darko</td><td><span class="mock-pill pill-gold">Late</span></td><td>08:31am</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Digital register with real-time tracking. Absent students trigger automatic parent SMS notifications.</div>
+          </div>
+          <div class="screen-display" id="educlass-3">
+            <div class="screen-header"><span class="screen-title">Report Card</span><span class="screen-badge">Term 2 — Generated</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Student</div><div class="mock-val">Abena Mensah — JHS 2B</div></div>
+              <table class="mock-table" style="margin-top:0.5rem">
+                <thead><tr><th>Subject</th><th>Score</th><th>Grade</th><th>Remark</th></tr></thead>
+                <tbody>
+                  <tr><td>Mathematics</td><td>82</td><td>A2</td><td>Excellent</td></tr>
+                  <tr><td>English</td><td>76</td><td>B2</td><td>Very Good</td></tr>
+                  <tr><td>Science</td><td>79</td><td>B1</td><td>Good</td></tr>
+                  <tr><td>Social Studies</td><td>71</td><td>B3</td><td>Good</td></tr>
+                </tbody>
+              </table>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label">Class Position</div><div class="mock-val" style="color:var(--gold)">4th / 38</div><button class="mock-btn-sm" style="margin-left:auto">Print / Share</button></div>
+            </div>
+            <div class="screen-desc">Professional report cards generated automatically with positions, grades, and teacher remarks — printable in one click.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SANCTUARY -->
+    <div class="demo-panel" id="panel-sanctuary">
+      <div class="demo-screens-container">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-title">Sanctuary Screens</div>
+          <ul class="demo-screen-nav" id="nav-sanctuary">
+            <li class="active" onclick="showScreen('sanctuary',0,this)"><span class="dot"></span>Ministry Overview</li>
+            <li onclick="showScreen('sanctuary',1,this)"><span class="dot"></span>Member Directory</li>
+            <li onclick="showScreen('sanctuary',2,this)"><span class="dot"></span>Tithes &amp; Offerings</li>
+            <li onclick="showScreen('sanctuary',3,this)"><span class="dot"></span>Events &amp; Services</li>
+          </ul>
+        </div>
+        <div class="demo-content-area">
+          <div class="screen-display active" id="sanctuary-0">
+            <div class="screen-header"><span class="screen-title">Ministry Dashboard</span><span class="screen-badge">This Month</span></div>
+            <div class="mock-ui">
+              <div class="mock-stat-grid">
+                <div class="mock-stat"><div class="num">1,240</div><div class="lbl">Members</div></div>
+                <div class="mock-stat"><div class="num">GH₵38,500</div><div class="lbl">Offerings Received</div></div>
+                <div class="mock-stat"><div class="num">8</div><div class="lbl">Upcoming Events</div></div>
+              </div>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label">Sunday Attendance</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:83%"></div></div><div class="mock-val" style="font-size:0.75rem;color:var(--text-muted)">1,030 members</div></div>
+              <div class="mock-row"><div class="mock-label">New Members</div><div class="mock-val" style="color:var(--green-light)">+24 this month</div></div>
+            </div>
+            <div class="screen-desc">A dignified overview of your congregation's health — attendance, giving, and growth, handled with care.</div>
+          </div>
+          <div class="screen-display" id="sanctuary-1">
+            <div class="screen-header"><span class="screen-title">Member Directory</span><span class="screen-badge">Family Records</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Member</th><th>Family</th><th>Cell Group</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Elder Kwesi Boateng</td><td>Boateng Family</td><td>Zone A</td><td><span class="mock-pill pill-green">Active</span></td></tr>
+                  <tr><td>Sister Adwoa Frimpong</td><td>Frimpong Family</td><td>Zone B</td><td><span class="mock-pill pill-green">Active</span></td></tr>
+                  <tr><td>Brother Nana Osei</td><td>Osei Family</td><td>Zone C</td><td><span class="mock-pill pill-gold">Follow-up</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Complete member profiles with family links, ministry roles, and visitation follow-up status.</div>
+          </div>
+          <div class="screen-display" id="sanctuary-2">
+            <div class="screen-header"><span class="screen-title">Tithes &amp; Offerings</span><span class="screen-badge">With Receipts</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Member</div><div class="mock-val">Elder Kwesi Boateng</div></div>
+              <div class="mock-row"><div class="mock-label">Date</div><div class="mock-val">Sunday, 19 Jan 2025</div></div>
+              <div class="mock-row"><div class="mock-label">Tithe</div><div class="mock-val" style="color:var(--gold)">GH₵500.00</div></div>
+              <div class="mock-row"><div class="mock-label">Offering</div><div class="mock-val">GH₵50.00</div></div>
+              <div class="mock-row"><div class="mock-label">Receipt</div><div class="mock-val" style="font-family:'Space Mono',monospace;font-size:0.72rem">RCP-2025-04421</div><button class="mock-btn-sm" style="margin-left:auto">Send Receipt</button></div>
+            </div>
+            <div class="screen-desc">Discreet, dignified donation tracking. Every tithe and offering recorded with a digital receipt for the giver.</div>
+          </div>
+          <div class="screen-display" id="sanctuary-3">
+            <div class="screen-header"><span class="screen-title">Events &amp; Services</span><span class="screen-badge">Schedule View</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Event</th><th>Date</th><th>Time</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Sunday Service</td><td>26 Jan</td><td>9:00am</td><td><span class="mock-pill pill-green">Confirmed</span></td></tr>
+                  <tr><td>Prayer &amp; Fasting</td><td>29 Jan</td><td>5:00am</td><td><span class="mock-pill pill-green">Confirmed</span></td></tr>
+                  <tr><td>Youth Convention</td><td>1 Feb</td><td>All Day</td><td><span class="mock-pill pill-gold">Planning</span></td></tr>
+                  <tr><td>Harvest Sunday</td><td>9 Feb</td><td>9:00am</td><td><span class="mock-pill pill-gold">Planning</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">All church events and services in one organized calendar — with announcement tools to notify the congregation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILDSMART -->
+    <div class="demo-panel" id="panel-buildsmart">
+      <div class="demo-screens-container">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-title">BuildSmart Screens</div>
+          <ul class="demo-screen-nav" id="nav-buildsmart">
+            <li class="active" onclick="showScreen('buildsmart',0,this)"><span class="dot"></span>Material Calculator</li>
+            <li onclick="showScreen('buildsmart',1,this)"><span class="dot"></span>Project Phases</li>
+            <li onclick="showScreen('buildsmart',2,this)"><span class="dot"></span>Cost Estimation</li>
+            <li onclick="showScreen('buildsmart',3,this)"><span class="dot"></span>Contractor Board</li>
+          </ul>
+        </div>
+        <div class="demo-content-area">
+          <div class="screen-display active" id="buildsmart-0">
+            <div class="screen-header"><span class="screen-title">Material Calculator</span><span class="screen-badge">Showstopper Feature</span></div>
+            <div class="mock-ui">
+              <div class="calc-grid">
+                <div class="calc-field">
+                  <label>Building Type</label>
+                  <select id="build-type" onchange="calcMaterials()">
+                    <option value="1bed">1-Bedroom House</option>
+                    <option value="2bed" selected>2-Bedroom House</option>
+                    <option value="3bed">3-Bedroom House</option>
+                    <option value="office">Office Block</option>
+                    <option value="shop">Shop / Store</option>
+                  </select>
+                </div>
+                <div class="calc-field">
+                  <label>No. of Floors</label>
+                  <select id="floors" onchange="calcMaterials()">
+                    <option value="1" selected>1 Floor</option>
+                    <option value="2">2 Floors</option>
+                    <option value="3">3 Floors</option>
+                  </select>
+                </div>
+              </div>
+              <div class="calc-results">
+                <div class="calc-results-title">Estimated Materials Required</div>
+                <div id="materials-output"></div>
+              </div>
+            </div>
+            <div class="screen-desc">Select a building type and instantly see every material you need — blocks, cement, iron rods, and more. Ask our AI assistant for deeper breakdowns.</div>
+          </div>
+          <div class="screen-display" id="buildsmart-1">
+            <div class="screen-header"><span class="screen-title">Project Phases</span><span class="screen-badge">2-Bedroom House</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Phase</th><th>Description</th><th>Est. Duration</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Phase 1</td><td>Foundation &amp; Substructure</td><td>3 weeks</td><td><span class="mock-pill pill-green">Complete</span></td></tr>
+                  <tr><td>Phase 2</td><td>Walling (Ground Floor)</td><td>4 weeks</td><td><span class="mock-pill pill-gold">In Progress</span></td></tr>
+                  <tr><td>Phase 3</td><td>Roofing &amp; Lintel</td><td>2 weeks</td><td><span class="mock-pill pill-red">Pending</span></td></tr>
+                  <tr><td>Phase 4</td><td>Plastering &amp; Finishing</td><td>3 weeks</td><td><span class="mock-pill pill-red">Pending</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Every construction phase planned in advance — with duration estimates and material requirements per phase.</div>
+          </div>
+          <div class="screen-display" id="buildsmart-2">
+            <div class="screen-header"><span class="screen-title">Cost Estimation</span><span class="screen-badge">Ghana Market Prices</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Project</div><div class="mock-val">2-Bedroom House — Accra</div></div>
+              <table class="mock-table" style="margin-top:0.5rem">
+                <thead><tr><th>Material</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr></thead>
+                <tbody>
+                  <tr><td>Sandcrete Blocks</td><td>2,800</td><td>GH₵4.50</td><td>GH₵12,600</td></tr>
+                  <tr><td>Cement (50kg bags)</td><td>180</td><td>GH₵85.00</td><td>GH₵15,300</td></tr>
+                  <tr><td>Iron Rods (12mm)</td><td>120</td><td>GH₵65.00</td><td>GH₵7,800</td></tr>
+                  <tr><td>Sharp Sand (trips)</td><td>6</td><td>GH₵800</td><td>GH₵4,800</td></tr>
+                </tbody>
+              </table>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label" style="color:var(--cream);font-weight:500">Materials Total</div><div class="mock-val" style="color:var(--gold);font-size:1rem;font-family:'Cormorant Garamond',serif;font-weight:700">GH₵40,500</div></div>
+            </div>
+            <div class="screen-desc">Real cost estimates based on current Ghanaian market prices — so you know the budget before you break ground.</div>
+          </div>
+          <div class="screen-display" id="buildsmart-3">
+            <div class="screen-header"><span class="screen-title">Contractor Board</span><span class="screen-badge">Team &amp; Suppliers</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Contractor</th><th>Role</th><th>Phase</th><th>Rating</th></tr></thead>
+                <tbody>
+                  <tr><td>Mensah &amp; Sons Ltd</td><td>Mason (Lead)</td><td>Phase 2</td><td><span style="color:var(--gold)">★★★★★</span></td></tr>
+                  <tr><td>Kofi Ironworks</td><td>Steel Fixer</td><td>Phase 2</td><td><span style="color:var(--gold)">★★★★☆</span></td></tr>
+                  <tr><td>Accra Sand &amp; Gravel</td><td>Supplier</td><td>All Phases</td><td><span style="color:var(--gold)">★★★★★</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Manage all your contractors and suppliers in one place — with performance ratings and phase assignments.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INNVUE -->
+    <div class="demo-panel" id="panel-innvue">
+      <div class="demo-screens-container">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-title">InnVue Screens</div>
+          <ul class="demo-screen-nav" id="nav-innvue">
+            <li class="active" onclick="showScreen('innvue',0,this)"><span class="dot"></span>Front Desk</li>
+            <li onclick="showScreen('innvue',1,this)"><span class="dot"></span>Room Availability</li>
+            <li onclick="showScreen('innvue',2,this)"><span class="dot"></span>Guest Check-In</li>
+            <li onclick="showScreen('innvue',3,this)"><span class="dot"></span>Housekeeping</li>
+          </ul>
+        </div>
+        <div class="demo-content-area">
+          <div class="screen-display active" id="innvue-0">
+            <div class="screen-header"><span class="screen-title">Front Desk Overview</span><span class="screen-badge">Live Status</span></div>
+            <div class="mock-ui">
+              <div class="mock-stat-grid">
+                <div class="mock-stat"><div class="num">28</div><div class="lbl">Occupied Rooms</div></div>
+                <div class="mock-stat"><div class="num">12</div><div class="lbl">Available Rooms</div></div>
+                <div class="mock-stat"><div class="num">5</div><div class="lbl">Check-outs Today</div></div>
+              </div>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label">Occupancy</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:70%"></div></div><div class="mock-val" style="font-size:0.75rem;color:var(--text-muted)">70%</div></div>
+              <div class="mock-row"><div class="mock-label">Tonight's Revenue</div><div class="mock-val" style="color:var(--gold)">GH₵8,400</div></div>
+            </div>
+            <div class="screen-desc">Everything your front desk needs — occupancy, revenue, and today's arrivals and departures, live.</div>
+          </div>
+          <div class="screen-display" id="innvue-1">
+            <div class="screen-header"><span class="screen-title">Room Availability</span><span class="screen-badge">This Week</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Room</th><th>Type</th><th>Tonight</th><th>Tomorrow</th><th>Rate/Night</th></tr></thead>
+                <tbody>
+                  <tr><td>101</td><td>Standard</td><td><span class="mock-pill pill-red">Occupied</span></td><td><span class="mock-pill pill-green">Free</span></td><td>GH₵350</td></tr>
+                  <tr><td>102</td><td>Standard</td><td><span class="mock-pill pill-green">Free</span></td><td><span class="mock-pill pill-green">Free</span></td><td>GH₵350</td></tr>
+                  <tr><td>201</td><td>Deluxe</td><td><span class="mock-pill pill-red">Occupied</span></td><td><span class="mock-pill pill-red">Booked</span></td><td>GH₵550</td></tr>
+                  <tr><td>202</td><td>Suite</td><td><span class="mock-pill pill-green">Free</span></td><td><span class="mock-pill pill-green">Free</span></td><td>GH₵900</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Instant room availability grid — book any free room in seconds, directly from this screen.</div>
+          </div>
+          <div class="screen-display" id="innvue-2">
+            <div class="screen-header"><span class="screen-title">Guest Check-In</span><span class="screen-badge">New Arrival</span></div>
+            <div class="mock-ui">
+              <div class="mock-row"><div class="mock-label">Guest Name</div><div class="mock-val">Mr. Kwabena Acheampong</div></div>
+              <div class="mock-row"><div class="mock-label">Room Assigned</div><div class="mock-val">Room 102 — Standard</div></div>
+              <div class="mock-row"><div class="mock-label">Check-in</div><div class="mock-val">Today, 2:00 PM</div></div>
+              <div class="mock-row"><div class="mock-label">Check-out</div><div class="mock-val">Thursday, 12:00 PM (3 nights)</div></div>
+              <div class="mock-row"><div class="mock-label">Total Bill</div><div class="mock-val" style="color:var(--gold)">GH₵1,050</div><button class="mock-btn-sm" style="margin-left:auto">Confirm Check-in</button></div>
+            </div>
+            <div class="screen-desc">Seamless check-in in under 60 seconds. Guest history is remembered for returning visitors.</div>
+          </div>
+          <div class="screen-display" id="innvue-3">
+            <div class="screen-header"><span class="screen-title">Housekeeping Board</span><span class="screen-badge">Room Status</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Room</th><th>Status</th><th>Assigned To</th><th>Priority</th></tr></thead>
+                <tbody>
+                  <tr><td>101</td><td><span class="mock-pill pill-gold">Cleaning</span></td><td>Adwoa (Cleaner)</td><td>High</td></tr>
+                  <tr><td>103</td><td><span class="mock-pill pill-green">Clean &amp; Ready</span></td><td>—</td><td>—</td></tr>
+                  <tr><td>205</td><td><span class="mock-pill pill-red">Needs Cleaning</span></td><td>Unassigned</td><td>Urgent</td></tr>
+                  <tr><td>202</td><td><span class="mock-pill pill-green">Clean &amp; Ready</span></td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Housekeeping managed digitally — staff assignments, room readiness status, and priorities, all coordinated from one board.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSITFLOW -->
+    <div class="demo-panel" id="panel-transitflow">
+      <div class="demo-screens-container">
+        <div class="demo-sidebar">
+          <div class="demo-sidebar-title">TransitFlow Screens</div>
+          <ul class="demo-screen-nav" id="nav-transitflow">
+            <li class="active" onclick="showScreen('transitflow',0,this)"><span class="dot"></span>Fleet Overview</li>
+            <li onclick="showScreen('transitflow',1,this)"><span class="dot"></span>Route Management</li>
+            <li onclick="showScreen('transitflow',2,this)"><span class="dot"></span>Driver Assignment</li>
+            <li onclick="showScreen('transitflow',3,this)"><span class="dot"></span>Maintenance Log</li>
+          </ul>
+        </div>
+        <div class="demo-content-area">
+          <div class="screen-display active" id="transitflow-0">
+            <div class="screen-header"><span class="screen-title">Fleet Dashboard</span><span class="screen-badge">Operations Live</span></div>
+            <div class="mock-ui">
+              <div class="mock-stat-grid">
+                <div class="mock-stat"><div class="num">24</div><div class="lbl">Total Vehicles</div></div>
+                <div class="mock-stat"><div class="num">19</div><div class="lbl">Active Today</div></div>
+                <div class="mock-stat"><div class="num">3</div><div class="lbl">In Maintenance</div></div>
+              </div>
+              <div class="mock-row" style="margin-top:0.5rem"><div class="mock-label">Fleet Active Rate</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:79%"></div></div><div class="mock-val" style="font-size:0.75rem;color:var(--text-muted)">79%</div></div>
+              <div class="mock-row"><div class="mock-label">Trips Completed</div><div class="mock-val" style="color:var(--green-light)">142 today</div></div>
+            </div>
+            <div class="screen-desc">Your entire transport operation at a glance — active vehicles, trip counts, and fleet health in real time.</div>
+          </div>
+          <div class="screen-display" id="transitflow-1">
+            <div class="screen-header"><span class="screen-title">Route Management</span><span class="screen-badge">Active Routes</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Route</th><th>Distance</th><th>Vehicles</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td>Accra → Kumasi</td><td>248 km</td><td>4</td><td><span class="mock-pill pill-green">Active</span></td></tr>
+                  <tr><td>Accra → Cape Coast</td><td>165 km</td><td>3</td><td><span class="mock-pill pill-green">Active</span></td></tr>
+                  <tr><td>Accra → Tamale</td><td>598 km</td><td>2</td><td><span class="mock-pill pill-gold">Reduced</span></td></tr>
+                  <tr><td>Kumasi → Takoradi</td><td>192 km</td><td>2</td><td><span class="mock-pill pill-green">Active</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">All intercity routes managed centrally — assign vehicles, adjust schedules, and monitor route performance.</div>
+          </div>
+          <div class="screen-display" id="transitflow-2">
+            <div class="screen-header"><span class="screen-title">Driver Assignment</span><span class="screen-badge">Today's Roster</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Driver</th><th>Vehicle</th><th>Route</th><th>Departure</th></tr></thead>
+                <tbody>
+                  <tr><td>Emmanuel Tetteh</td><td>GR-4421-22 (Bus)</td><td>Accra → Kumasi</td><td>6:00 AM</td></tr>
+                  <tr><td>Kwame Asare</td><td>GR-1180-21 (Bus)</td><td>Accra → Cape Coast</td><td>7:00 AM</td></tr>
+                  <tr><td>Yaw Appiah</td><td>GW-9921-23 (Minivan)</td><td>Accra → Kumasi</td><td>8:00 AM</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Driver and conductor assignments managed digitally — departures, vehicle pairing, and duty schedules organized.</div>
+          </div>
+          <div class="screen-display" id="transitflow-3">
+            <div class="screen-header"><span class="screen-title">Maintenance Log</span><span class="screen-badge">Vehicle Health</span></div>
+            <div class="mock-ui">
+              <table class="mock-table">
+                <thead><tr><th>Vehicle</th><th>Issue</th><th>Workshop</th><th>Est. Return</th></tr></thead>
+                <tbody>
+                  <tr><td>GR-7712-20</td><td>Brake service</td><td>Accra Motors</td><td>Tomorrow</td></tr>
+                  <tr><td>GW-4420-19</td><td>Engine overhaul</td><td>Kumasi Auto</td><td>5 days</td></tr>
+                  <tr><td>GR-0023-22</td><td>Tyre change</td><td>In-house</td><td>Today PM</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="screen-desc">Every vehicle's maintenance history tracked — so breakdowns are predicted and fleet downtime is minimized.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end demo-stage -->
+  <div class="demo-nav-btns">
+    <button class="demo-nav-btn" onclick="demoBack()">← Previous</button>
+    <button class="demo-nav-btn primary" onclick="demoNext()">Next Screen →</button>
+    <button class="demo-nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Full Demo ↗</button>
+  </div>
+</section>
+
+<!-- WHY ELNERGE -->
+<section id="why">
+  <div class="section-label">Why Choose Us</div>
+  <h2 class="section-title">The <span>Elnerge</span> Difference</h2>
+  <div class="divider"></div>
+  <div class="why-grid fade-up">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <h3 class="why-title">Specialized</h3>
+      <p class="why-desc">Not generic tools. Every IBA product is purpose-built for one industry — so it solves real problems instead of creating new ones.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <h3 class="why-title">Intelligent</h3>
+      <p class="why-desc">The "I" in IBA is not a buzzword. Automation, alerts, and analysis are built into every workflow — so your software works as hard as you do.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <h3 class="why-title">Personal</h3>
+      <p class="why-desc">The founder's name is in the company name. That's a level of personal commitment no generic software house can match.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <h3 class="why-title">African-First</h3>
+      <p class="why-desc">Built for Ghanaian cedis, local suppliers, African school systems, and African business realities. Not adapted — designed from the ground up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="section-label">Industries We Serve</div>
+  <h2 class="section-title">From the Storefront to the <span>Sanctuary</span></h2>
+  <div class="divider"></div>
+  <div class="industries-strip fade-up">
+    <div class="industry-item">
+      <span class="industry-emoji">🛒</span>
+      <div class="industry-name">Retail &amp; Commerce</div>
+    </div>
+    <div class="industry-item">
+      <span class="industry-emoji">🎓</span>
+      <div class="industry-name">Education</div>
+    </div>
+    <div class="industry-item">
+      <span class="industry-emoji">⛪</span>
+      <div class="industry-name">Faith &amp; Community</div>
+    </div>
+    <div class="industry-item">
+      <span class="industry-emoji">🏗️</span>
+      <div class="industry-name">Construction</div>
+    </div>
+    <div class="industry-item">
+      <span class="industry-emoji">🏨</span>
+      <div class="industry-name">Hospitality</div>
+    </div>
+    <div class="industry-item">
+      <span class="industry-emoji">🚌</span>
+      <div class="industry-name">Transport</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Ready to Run Your Business<br><span>Intelligently?</span></h2>
+  <div class="divider"></div>
+  <div class="contact-grid fade-up">
+    <div class="contact-info">
+      <h3>Let's build something intelligent together.</h3>
+      <p>Whether you're a retailer in Accra, a school administrator in Kumasi, or a construction firm in Takoradi — there's an IBA product made for your business.</p>
+      <p>Book a personalized demo and see your specific product in action.</p>
+      <div class="contact-detail"><strong>Domain</strong> aelnerge.tech</div>
+      <div class="contact-detail"><strong>Twitter/X</strong> @aelnerge</div>
+      <div class="contact-detail"><strong>LinkedIn</strong> @aelnerge</div>
+      <div class="contact-detail"><strong>Instagram</strong> @aelnerge</div>
+      <div style="margin-top:2rem">
+        <div class="story-quote" style="font-size:1rem">"Every application we build carries the personal commitment of a founder who put his name into the very name of the company." <span>— Immanuel Boanerge Agbemabiase</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-field">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your name">
+      </div>
+      <div class="form-field">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-field">
+        <label>Your Industry</label>
+        <select>
+          <option value="">Select your industry</option>
+          <option>Retail &amp; Commerce</option>
+          <option>Education</option>
+          <option>Faith &amp; Community</option>
+          <option>Construction</option>
+          <option>Hospitality</option>
+          <option>Transport</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your business and what you're looking for..."></textarea>
+      </div>
+      <button class="btn-submit">Request a Demo →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark">Elnerge</div>
+      <p>A. Elnerge Technologies — creators of the IBA Suite. Intelligent Business Applications for Africa's industries. Founded and led by Immanuel Boanerge Agbemabiase.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <a href="#demo">IBA TradeDesk</a>
+      <a href="#demo">IBA EduClass</a>
+      <a href="#demo">IBA Sanctuary</a>
+      <a href="#demo">IBA BuildSmart</a>
+      <a href="#demo">IBA InnVue</a>
+      <a href="#demo">IBA TransitFlow</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#story">Our Story</a>
+      <a href="#why">Why Elnerge</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact">Book a Demo</a>
+    </div>
+    <div class="footer-col">
+      <h5>Connect</h5>
+      <a href="#">@aelnerge on X</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">aelnerge.tech</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 A. Elnerge Technologies. All rights reserved.</span>
+    <span style="font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--gold-dim)">IBA · INTELLIGENT BUSINESS APPLICATIONS</span>
+  </div>
+</footer>
+
+<!-- AI CHAT -->
+<div id="ai-chat">
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">E</div>
+        <div class="chat-header-text">
+          <div class="name">Elnerge AI Assistant</div>
+          <div class="status">Online — powered by Claude</div>
+        </div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="msg ai">
+        <div class="msg-avatar">E</div>
+        <div class="msg-bubble">Hello! I'm the Elnerge AI assistant. I know everything about the IBA Suite — TradeDesk, EduClass, Sanctuary, BuildSmart, InnVue, and TransitFlow. What would you like to know?</div>
+      </div>
+    </div>
+    <div class="chat-chips" id="chat-chips">
+      <span class="chip" onclick="sendChip(this)">Which product suits my business?</span>
+      <span class="chip" onclick="sendChip(this)">How does BuildSmart work?</span>
+      <span class="chip" onclick="sendChip(this)">What is IBA TradeDesk?</span>
+      <span class="chip" onclick="sendChip(this)">Tell me about IBA Sanctuary</span>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask anything about Elnerge..." onkeydown="if(event.key==='Enter')sendMessage()">
+      <button id="chat-send" onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+  <button class="chat-fab" onclick="toggleChat()" title="Chat with Elnerge AI">💬</button>
+</div>
+
+<script>
+// ── DEMO LOGIC ──
+const demoState = { current: 'tradedesk', screens: { tradedesk:0, educlass:0, sanctuary:0, buildsmart:0, innvue:0, transitflow:0 }, counts: { tradedesk:4, educlass:4, sanctuary:4, buildsmart:4, innvue:4, transitflow:4 } };
+
+function switchDemo(name, tabEl) {
+  document.querySelectorAll('.demo-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  tabEl.classList.add('active');
+  demoState.current = name;
+  const idx = demoState.screens[name];
+  syncSidebarNav(name, idx);
+  if (name === 'buildsmart' && idx === 0) calcMaterials();
+}
+
+function showScreen(product, idx, liEl) {
+  document.querySelectorAll('#panel-' + product + ' .screen-display').forEach(s => s.classList.remove('active'));
+  document.getElementById(product + '-' + idx).classList.add('active');
+  demoState.screens[product] = idx;
+  if (liEl) {
+    document.querySelectorAll('#nav-' + product + ' li').forEach(l => l.classList.remove('active'));
+    liEl.classList.add('active');
+  }
+  if (product === 'buildsmart' && idx === 0) setTimeout(calcMaterials, 50);
+}
+
+function syncSidebarNav(product, idx) {
+  const lis = document.querySelectorAll('#nav-' + product + ' li');
+  lis.forEach((l,i) => l.classList.toggle('active', i === idx));
+  showScreen(product, idx, null);
+}
+
+function demoNext() {
+  const p = demoState.current;
+  const next = Math.min(demoState.screens[p] + 1, demoState.counts[p] - 1);
+  demoState.screens[p] = next;
+  syncSidebarNav(p, next);
+}
+
+function demoBack() {
+  const p = demoState.current;
+  const prev = Math.max(demoState.screens[p] - 1, 0);
+  demoState.screens[p] = prev;
+  syncSidebarNav(p, prev);
+}
+
+function openDemo(name) {
+  document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    const tabs = document.querySelectorAll('.demo-tab');
+    const names = ['tradedesk','educlass','sanctuary','buildsmart','innvue','transitflow'];
+    const idx = names.indexOf(name);
+    if (idx >= 0) switchDemo(name, tabs[idx]);
+  }, 600);
+}
+
+// ── BUILDSMART CALCULATOR ──
+function calcMaterials() {
+  const type = document.getElementById('build-type').value;
+  const floors = parseInt(document.getElementById('floors').value);
+  const base = { '1bed':{blocks:1800,cement:110,rods:70,sand:4,gravel:3}, '2bed':{blocks:2800,cement:180,rods:120,sand:6,gravel:4}, '3bed':{blocks:4200,cement:260,rods:180,sand:9,gravel:6}, 'office':{blocks:3600,cement:220,rods:160,sand:8,gravel:5}, 'shop':{blocks:2000,cement:140,rods:90,sand:5,gravel:3} };
+  const m = base[type];
+  const f = floors;
+  const out = document.getElementById('materials-output');
+  if (!out) return;
+  const items = [
+    { icon:'🧱', name:'Sandcrete Blocks', qty: Math.round(m.blocks * f * 0.9), unit:'blocks' },
+    { icon:'🏺', name:'Cement (50kg bags)', qty: Math.round(m.cement * f), unit:'bags' },
+    { icon:'🔩', name:'Iron Rods (12mm)', qty: Math.round(m.rods * f), unit:'lengths' },
+    { icon:'⛏️', name:'Sharp Sand', qty: Math.round(m.sand * f), unit:'trips' },
+    { icon:'🪨', name:'Granite / Gravel', qty: Math.round(m.gravel * f), unit:'trips' },
+    { icon:'🪵', name:'Roofing Timber', qty: Math.round(40 * floors), unit:'pieces' },
+  ];
+  out.innerHTML = items.map(i => `<div class="material-row"><span class="material-icon">${i.icon}</span><span class="material-name">${i.name}</span><span class="material-qty">${i.qty.toLocaleString()}</span><span class="material-unit">${i.unit}</span></div>`).join('');
+}
+
+// ── SCROLL ANIMATIONS ──
+const observer = new IntersectionObserver((entries) => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.15 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── AI CHAT ──
+let chatOpen = false;
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chat-window').classList.toggle('open', chatOpen);
+}
+
+const SYSTEM_PROMPT = `You are the AI assistant for A. Elnerge Technologies, a Ghanaian software development house. You are knowledgeable, professional, and represent the brand with confidence and warmth. Your role is to help website visitors understand the IBA Suite products and guide them to the right solution.
+
+COMPANY: A. Elnerge Technologies — founded by Immanuel Boanerge Agbemabiase. The name "Elnerge" is built from the founder's initials: EL (Immanuel), NERGE (Boanerge), A. (Agbemabiase). Tagline: "Intelligent Business Applications".
+
+THE IBA SUITE — 6 PRODUCTS:
+1. IBA TradeDesk (Retail & Commerce) — POS + warehouse management. Two modules: TradeDesk Counter (fast checkout, digital receipts, customer history) and TradeDesk Stockroom (real-time stock sync, auto purchase orders, multi-location tracking). Tagline: "Sell Smarter. Stock Smarter."
+2. IBA EduClass (Education) — Full school management. Student enrollment, attendance, grades & report cards, fee management, timetable scheduling, parent-teacher communication. Tagline: "The Intelligent Classroom Manager."
+3. IBA Sanctuary (Faith & Community) — Church management. Member & family database, tithe & donation tracking with receipts, event scheduling, group/ministry management, secure communications. Tagline: "The Intelligent Church Manager."
+4. IBA BuildSmart (Construction) — Material quantity & cost calculator. Calculates blocks, cement, iron rods, sand for any building type. Phase-by-phase project planning, real-time cost estimates (Ghana market prices), contractor/supplier management. Showstopper feature: select "3-bedroom house" and instantly see all material requirements. Tagline: "The Intelligent Project Planner."
+5. IBA InnVue (Hospitality) — Hotel/guest house management. Front desk, reservations, check-in/out, room status, housekeeping coordination, billing. Tagline: "The Intelligent Hospitality Hub."
+6. IBA TransitFlow (Transport) — Fleet management. Vehicle registration, route planning, driver assignment, schedule management, maintenance & fuel logs. Tagline: "The Intelligent Fleet Organizer."
+
+For BuildSmart material questions, you can provide estimates:
+- 1-bedroom house: ~1,800 blocks, ~110 bags cement, ~70 iron rods, ~4 sand trips
+- 2-bedroom house: ~2,800 blocks, ~180 bags cement, ~120 iron rods, ~6 sand trips  
+- 3-bedroom house: ~4,200 blocks, ~260 bags cement, ~180 iron rods, ~9 sand trips
+Multiply by floors. Prices: cement ~GH₵85/bag, blocks ~GH₵4.50 each, iron rods ~GH₵65 each.
+
+Keep answers concise, helpful, and warm. Speak as a knowledgeable brand ambassador. If asked about pricing or getting started, direct them to book a demo via the contact form.`;
+
+let chatHistory = [];
+
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  addMsg('user', msg);
+  document.getElementById('chat-chips').style.display = 'none';
+  const typingEl = addTyping();
+  chatHistory.push({ role: 'user', content: msg });
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: SYSTEM_PROMPT, messages: chatHistory })
+    });
+    const data = await res.json();
+    typingEl.remove();
+    const reply = data.content && data.content[0] ? data.content[0].text : "I'm sorry, I couldn't connect right now. Please try again.";
+    chatHistory.push({ role: 'assistant', content: reply });
+    addMsg('ai', reply);
+  } catch(e) {
+    typingEl.remove();
+    addMsg('ai', "I'm having trouble connecting. Please refresh and try again.");
+  }
+}
+
+function sendChip(el) {
+  document.getElementById('chat-input').value = el.textContent;
+  sendMessage();
+}
+
+function addMsg(role, text) {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.innerHTML = `<div class="msg-avatar">${role === 'ai' ? 'E' : 'U'}</div><div class="msg-bubble">${text.replace(/\n/g,'<br>')}</div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function addTyping() {
+  const container = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg ai';
+  div.innerHTML = `<div class="msg-avatar">E</div><div class="msg-bubble"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  return div;
+}
+
+// Init
+calcMaterials();
+</script>
+</body>
+</html>
