@@ -1,5 +1,5 @@
 /* ============================================================
-   NAVIGATION.JS — Section Switching & Breadcrumb
+   NAVIGATION.JS — Section Switching, Breadcrumb & Sidebar
    A. Elnerge Technologies
    ============================================================ */
 
@@ -15,66 +15,72 @@ const sectionNames = {
   contact:    'Contact Us',
 };
 
-/**
- * Navigate to a section
- * @param {string} name - Section key (e.g. 'products')
- * @param {HTMLElement|null} linkEl - The sidebar link that was clicked
- */
+// ── NAVIGATE TO A SECTION ──
 function go(name, linkEl) {
+
   // Hide all sections
   document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
 
-  // Show the target section
+  // Show target section
   const target = document.getElementById('sec-' + name);
   if (target) target.classList.add('active');
 
-  // Update breadcrumb
+  // Update breadcrumb text
   const bc = document.getElementById('breadcrumb-current');
   if (bc) bc.textContent = sectionNames[name] || name;
 
-  // Update active sidebar link
+  // Update active sidebar link highlight
   if (linkEl) {
     document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
     linkEl.classList.add('active');
   }
 
-  // Scroll page to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Scroll to top — works across all browsers
+  window.scrollTo(0, 0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 
-  // Also scroll #main to top in case it has overflow
-  const main = document.getElementById('main');
-  if (main) main.scrollTop = 0;
-
-  // Close sidebar on mobile after navigation
-  const sidebar = document.getElementById('sidebar');
-  if (window.innerWidth <= 768 && sidebar) {
-    sidebar.classList.remove('open');
+  // On mobile — close sidebar after navigation
+  if (window.innerWidth <= 768) {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) sidebar.classList.remove('open');
   }
 
-  // Init demo calculator if navigating to demo
+  // Init BuildSmart calculator when demo section opens
   if (name === 'demo') {
     setTimeout(calcMaterials, 100);
   }
 }
 
-// ── MOBILE SIDEBAR TOGGLE ──
+// ── SIDEBAR TOGGLE (hamburger button) ──
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
-  if (sidebar) sidebar.classList.toggle('open');
+  const main    = document.getElementById('main');
+
+  if (!sidebar) return;
+
+  if (window.innerWidth <= 768) {
+    // Mobile: slide in/out
+    sidebar.classList.toggle('open');
+  } else {
+    // Desktop: collapse/expand with margin shift
+    sidebar.classList.toggle('collapsed');
+    if (main) main.classList.toggle('expanded');
+  }
 }
 
-// Close sidebar when clicking outside on mobile
+// ── CLOSE SIDEBAR WHEN CLICKING OUTSIDE (mobile) ──
 document.addEventListener('click', function(e) {
-  const sidebar = document.getElementById('sidebar');
-  const toggleBtn = document.getElementById('sidebar-toggle');
+  const sidebar    = document.getElementById('sidebar');
+  const toggleBtn  = document.getElementById('sidebar-toggle');
+
   if (
     window.innerWidth <= 768 &&
     sidebar &&
     sidebar.classList.contains('open') &&
     !sidebar.contains(e.target) &&
-    e.target !== toggleBtn
+    toggleBtn &&
+    !toggleBtn.contains(e.target)
   ) {
     sidebar.classList.remove('open');
   }
