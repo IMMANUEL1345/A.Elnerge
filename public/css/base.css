@@ -114,11 +114,19 @@ ul {
 
 /* ── PAGE SECTIONS ── */
 .page-section {
-  display: none;
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
 }
 
 .page-section.active {
-  display: block;
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
 }
 
 /* ── STATUS PILLS ── */

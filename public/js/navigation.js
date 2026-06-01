@@ -1,11 +1,6 @@
 /* ============================================================
    NAVIGATION.JS — Section Switching, Breadcrumb & Sidebar
    A. Elnerge Technologies
-
-   Loaded via <script defer> in <head>.
-   defer = downloaded in parallel with HTML parsing,
-   executed after full HTML is parsed, before DOMContentLoaded.
-   go(), toggleSidebar() are available before any click fires.
    ============================================================ */
 
 const sectionMap = {
@@ -20,23 +15,29 @@ const sectionMap = {
   contact:    'Contact Us',
 };
 
-// ── INIT — runs once after HTML is fully parsed ──
-// defer guarantees this runs before user can interact
+// ── HIDE a section completely ──
+function hideSection(el) {
+  el.style.display    = 'none';
+  el.style.visibility = 'hidden';
+  el.style.height     = '0';
+  el.style.overflow   = 'hidden';
+  el.classList.remove('active');
+}
+
+// ── SHOW a section ──
+function showSection(el) {
+  el.style.display    = 'block';
+  el.style.visibility = 'visible';
+  el.style.height     = 'auto';
+  el.style.overflow   = 'visible';
+  el.classList.add('active');
+}
+
+// ── INIT: runs immediately when script loads (defer guarantees HTML is ready) ──
 (function init() {
-  // Hide all sections
-  document.querySelectorAll('.page-section').forEach(s => {
-    s.style.display = 'none';
-    s.classList.remove('active');
-  });
-
-  // Show home only
+  document.querySelectorAll('.page-section').forEach(hideSection);
   const home = document.getElementById('sec-home');
-  if (home) {
-    home.style.display = 'block';
-    home.classList.add('active');
-  }
-
-  // Set copyright year
+  if (home) showSection(home);
   const yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 })();
@@ -44,18 +45,12 @@ const sectionMap = {
 // ── NAVIGATE TO A SECTION ──
 function go(name, linkEl) {
 
-  // Hide ALL sections with inline style — beats any CSS rule
-  document.querySelectorAll('.page-section').forEach(s => {
-    s.style.display = 'none';
-    s.classList.remove('active');
-  });
+  // Hide all sections
+  document.querySelectorAll('.page-section').forEach(hideSection);
 
-  // Show ONLY the target section
+  // Show target
   const target = document.getElementById('sec-' + name);
-  if (target) {
-    target.style.display = 'block';
-    target.classList.add('active');
-  }
+  if (target) showSection(target);
 
   // Update breadcrumb
   const bc = document.getElementById('breadcrumb-current');
@@ -65,7 +60,7 @@ function go(name, linkEl) {
   document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
   if (linkEl) linkEl.classList.add('active');
 
-  // Scroll to top — all browsers covered
+  // Scroll to top
   window.scrollTo(0, 0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
@@ -85,7 +80,6 @@ function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   const main    = document.getElementById('main');
   if (!sidebar) return;
-
   if (window.innerWidth <= 768) {
     sidebar.classList.toggle('open');
   } else {
@@ -94,7 +88,7 @@ function toggleSidebar() {
   }
 }
 
-// Close sidebar when clicking outside on mobile
+// Close sidebar on outside click (mobile)
 document.addEventListener('click', e => {
   const sidebar   = document.getElementById('sidebar');
   const toggleBtn = document.getElementById('sidebar-toggle');

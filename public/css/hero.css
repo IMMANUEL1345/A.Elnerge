@@ -1,3 +1,38 @@
+/* ── HERO SECTION WRAPPER ── */
+.hero-section {
+  background: linear-gradient(135deg, #0F3260 0%, #1B4D8E 55%, #0E9B8A 100%);
+  padding: 4rem 2.5rem 3rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 53px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-bg-circle-1 {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: rgba(0, 198, 179, 0.08);
+  pointer-events: none;
+}
+
+.hero-bg-circle-2 {
+  position: absolute;
+  right: 160px;
+  bottom: -80px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
 /* ============================================================
    HERO.CSS — Home / Hero Section
    A. Elnerge Technologies
