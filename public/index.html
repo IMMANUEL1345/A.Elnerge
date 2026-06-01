@@ -29,6 +29,13 @@
     .page-section.active { display: block !important; }
     #sec-home { display: block !important; }
   </style>
+
+  <!-- JS loaded in <head> with defer — downloaded in parallel,
+       executed after HTML is parsed, before any click can fire -->
+  <script src="js/navigation.js" defer></script>
+  <script src="js/demo.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="js/chat.js" defer></script>
 </head>
 <body>
 
@@ -1053,7 +1060,7 @@
       </div>
       <div class="footer-col">
         <h5>Connect</h5>
-        <a href="https://wa.me/233595309009" target="_blank">💬 WhatsApp</a>
+        <a href="https://wa.me/233XXXXXXXXX" target="_blank">💬 WhatsApp</a>
         <a href="#">@aelnerge on X</a>
         <a href="#">LinkedIn</a>
         <a href="#">Instagram</a>
@@ -1112,10 +1119,7 @@
      JS FILES — defer ensures they load before
      any click handler fires
 ════════════════════════════════════════════ -->
-<script src="js/navigation.js" defer></script>
-<script src="js/demo.js" defer></script>
-<script src="js/calculator.js" defer></script>
-<script src="js/chat.js" defer></script>
+
 
 <script>
   // ── CONTACT FORM SUBMISSION ──
