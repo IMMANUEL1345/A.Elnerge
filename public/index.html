@@ -1108,16 +1108,16 @@
 <!-- ═══════════════════════════════════════════
      JS FILES — One file per concern
 ════════════════════════════════════════════ -->
-<script src="js/navigation.js"></script>
-<script src="js/demo.js"></script>
-<script src="js/calculator.js"></script>
-<script src="js/chat.js"></script>
+<!-- ═══════════════════════════════════════════
+     JS FILES — defer ensures they load before
+     any click handler fires
+════════════════════════════════════════════ -->
+<script src="js/navigation.js" defer></script>
+<script src="js/demo.js" defer></script>
+<script src="js/calculator.js" defer></script>
+<script src="js/chat.js" defer></script>
 
 <script>
-  // ── INIT ──
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  calcMaterials();
-
   // ── CONTACT FORM SUBMISSION ──
   async function submitForm() {
     const body = {

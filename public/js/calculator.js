@@ -67,3 +67,7 @@ function calcMaterials() {
     </div>
   `).join('');
 }
+
+
+// Init calculator when page loads
+document.addEventListener('DOMContentLoaded', () => calcMaterials());
