@@ -15,29 +15,22 @@ const sectionMap = {
   contact:    'Contact Us',
 };
 
-// ── HIDE a section completely ──
-function hideSection(el) {
-  el.style.display    = 'none';
-  el.style.visibility = 'hidden';
-  el.style.height     = '0';
-  el.style.overflow   = 'hidden';
-  el.classList.remove('active');
-}
-
-// ── SHOW a section ──
-function showSection(el) {
-  el.style.display    = 'block';
-  el.style.visibility = 'visible';
-  el.style.height     = 'auto';
-  el.style.overflow   = 'visible';
-  el.classList.add('active');
-}
-
-// ── INIT: runs immediately when script loads (defer guarantees HTML is ready) ──
+// ── INIT: runs immediately when script loads ──
 (function init() {
-  document.querySelectorAll('.page-section').forEach(hideSection);
+  // Hide all sections
+  document.querySelectorAll('.page-section').forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+
+  // Show only home
   const home = document.getElementById('sec-home');
-  if (home) showSection(home);
+  if (home) {
+    home.style.display = 'block';
+    home.classList.add('active');
+  }
+
+  // Set copyright year
   const yr = document.getElementById('yr');
   if (yr) yr.textContent = new Date().getFullYear();
 })();
@@ -46,11 +39,17 @@ function showSection(el) {
 function go(name, linkEl) {
 
   // Hide all sections
-  document.querySelectorAll('.page-section').forEach(hideSection);
+  document.querySelectorAll('.page-section').forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
 
-  // Show target
+  // Show target section
   const target = document.getElementById('sec-' + name);
-  if (target) showSection(target);
+  if (target) {
+    target.style.display = 'block';
+    target.classList.add('active');
+  }
 
   // Update breadcrumb
   const bc = document.getElementById('breadcrumb-current');
@@ -60,7 +59,12 @@ function go(name, linkEl) {
   document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
   if (linkEl) linkEl.classList.add('active');
 
-  // Scroll to top
+  // Scroll #main to top — this is the key fix
+  const main = document.getElementById('main');
+  if (main) {
+    main.scrollTop = 0;
+  }
+  // Also scroll window to top as fallback
   window.scrollTo(0, 0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
