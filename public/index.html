@@ -103,12 +103,15 @@
 
   <!-- TOP NAV -->
   <div id="topnav">
-    <div class="breadcrumb">
-      A.Elnerge Technologies &rsaquo;
-      <span id="breadcrumb-current">Home</span>
+    <div style="display:flex;align-items:center;gap:0.8rem;">
+      <button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="breadcrumb">
+        A.Elnerge Technologies &rsaquo;
+        <span id="breadcrumb-current">Home</span>
+      </div>
     </div>
     <div class="topnav-right">
-      <a class="btn-whatsapp" href="https://wa.me/233XXXXXXXXX" target="_blank" rel="noopener noreferrer">
+      <a class="btn-whatsapp" href="https://wa.me/233XXXXXXXXX" target="_blank">
         💬 WhatsApp Us
       </a>
       <button class="btn-topnav" onclick="go('contact', null)">Book a Demo</button>
@@ -629,7 +632,7 @@
                 <div class="screen-hdr"><span class="screen-title">Material Calculator</span><span class="screen-badge">Showstopper Feature</span></div>
                 <div class="mock-ui">
                   <div class="calc-grid">
-                    <div class="calc-field"><label for="build-type">Building Type</label>
+                    <div class="calc-field"><label>Building Type</label>
                       <select id="build-type" onchange="calcMaterials()">
                         <option value="1bed">1-Bedroom House</option>
                         <option value="2bed" selected>2-Bedroom House</option>
@@ -638,7 +641,7 @@
                         <option value="shop">Shop / Store</option>
                       </select>
                     </div>
-                    <div class="calc-field"><label for="floors">No. of Floors</label>
+                    <div class="calc-field"><label>No. of Floors</label>
                       <select id="floors" onchange="calcMaterials()">
                         <option value="1" selected>1 Floor</option>
                         <option value="2">2 Floors</option>
@@ -980,7 +983,7 @@
           <div class="contact-detail"><strong>LinkedIn</strong> @aelnerge</div>
           <div class="contact-detail"><strong>Instagram</strong> @aelnerge</div>
           <div class="contact-detail"><strong>Location</strong> Accra, Ghana</div>
-          <a class="btn-whatsapp-large" href="https://wa.me/233XXXXXXXXX" target="_blank" rel="noopener noreferrer">
+          <a class="btn-whatsapp-large" href="https://wa.me/233XXXXXXXXX" target="_blank">
             💬 Chat with us on WhatsApp
           </a>
           <div class="contact-quote">
@@ -994,7 +997,7 @@
           <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your full name" id="f-name"></div>
           <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com" id="f-email"></div>
           <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+233 XX XXX XXXX" id="f-phone"></div>
-          <div class="form-field"><label for="f-industry">Your Industry</label>
+          <div class="form-field"><label>Your Industry</label>
             <select id="f-industry">
               <option value="">Select your industry</option>
               <option>Retail &amp; Commerce</option>
@@ -1044,7 +1047,7 @@
       </div>
       <div class="footer-col">
         <h5>Connect</h5>
-        <a href="https://wa.me/233595309009" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <a href="https://wa.me/233XXXXXXXXX" target="_blank">💬 WhatsApp</a>
         <a href="#">@aelnerge on X</a>
         <a href="#">LinkedIn</a>
         <a href="#">Instagram</a>
