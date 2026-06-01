@@ -6,11 +6,10 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "node_modules/.bin/nest build",
-    "start": "node_modules/.bin/nest start",
-    "start:dev": "node_modules/.bin/nest start --watch",
-    "start:prod": "node dist/main",
-    "vercel-build": "node_modules/.bin/nest build"
+    "build": "echo 'Static site - no build needed'",
+    "start": "npx serve public",
+    "start:dev": "npx serve public",
+    "vercel-build": "echo 'Static site - no build needed'"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
