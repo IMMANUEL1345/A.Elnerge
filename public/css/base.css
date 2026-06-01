@@ -113,12 +113,13 @@ ul {
 }
 
 /* ── PAGE SECTIONS ── */
+/* JS in navigation.js controls show/hide via inline style */
 .page-section {
-  display: none !important;
+  display: none;
 }
 
 .page-section.active {
-  display: block !important;
+  display: block;
 }
 
 /* ── STATUS PILLS ── */

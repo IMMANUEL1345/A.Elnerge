@@ -15,26 +15,6 @@ const sectionMap = {
   contact:    'Contact Us',
 };
 
-// ── INIT: runs immediately when script loads ──
-(function init() {
-  // Hide all sections
-  document.querySelectorAll('.page-section').forEach(s => {
-    s.style.display = 'none';
-    s.classList.remove('active');
-  });
-
-  // Show only home
-  const home = document.getElementById('sec-home');
-  if (home) {
-    home.style.display = 'block';
-    home.classList.add('active');
-  }
-
-  // Set copyright year
-  const yr = document.getElementById('yr');
-  if (yr) yr.textContent = new Date().getFullYear();
-})();
-
 // ── NAVIGATE TO A SECTION ──
 function go(name, linkEl) {
 
@@ -59,15 +39,8 @@ function go(name, linkEl) {
   document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
   if (linkEl) linkEl.classList.add('active');
 
-  // Scroll #main to top — this is the key fix
-  const main = document.getElementById('main');
-  if (main) {
-    main.scrollTop = 0;
-  }
-  // Also scroll window to top as fallback
+  // Scroll to top
   window.scrollTo(0, 0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
 
   // Close sidebar on mobile
   if (window.innerWidth <= 768) {
@@ -106,4 +79,28 @@ document.addEventListener('click', e => {
   ) {
     sidebar.classList.remove('open');
   }
+});
+
+// ── INIT on page load ──
+window.addEventListener('load', () => {
+
+  // Hide all sections
+  document.querySelectorAll('.page-section').forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+
+  // Show home
+  const home = document.getElementById('sec-home');
+  if (home) {
+    home.style.display = 'block';
+    home.classList.add('active');
+  }
+
+  // Set copyright year
+  const yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // Init calculator
+  calcMaterials();
 });
