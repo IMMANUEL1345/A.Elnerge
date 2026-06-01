@@ -38,12 +38,44 @@ function go(name, linkEl) {
     linkEl.classList.add('active');
   }
 
-  // Scroll to top of main content
+  // Scroll page to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+  // Also scroll #main to top in case it has overflow
   const main = document.getElementById('main');
-  if (main) main.scrollTo(0, 0);
+  if (main) main.scrollTop = 0;
+
+  // Close sidebar on mobile after navigation
+  const sidebar = document.getElementById('sidebar');
+  if (window.innerWidth <= 768 && sidebar) {
+    sidebar.classList.remove('open');
+  }
 
   // Init demo calculator if navigating to demo
   if (name === 'demo') {
     setTimeout(calcMaterials, 100);
   }
 }
+
+// ── MOBILE SIDEBAR TOGGLE ──
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar) sidebar.classList.toggle('open');
+}
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', function(e) {
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('sidebar-toggle');
+  if (
+    window.innerWidth <= 768 &&
+    sidebar &&
+    sidebar.classList.contains('open') &&
+    !sidebar.contains(e.target) &&
+    e.target !== toggleBtn
+  ) {
+    sidebar.classList.remove('open');
+  }
+});

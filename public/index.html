@@ -633,7 +633,7 @@
                 <div class="mock-ui">
                   <div class="calc-grid">
                     <div class="calc-field"><label>Building Type</label>
-                      <select id="build-type" onchange="calcMaterials()">
+                      <select id="build-type" aria-label="Building Type" onchange="calcMaterials()">
                         <option value="1bed">1-Bedroom House</option>
                         <option value="2bed" selected>2-Bedroom House</option>
                         <option value="3bed">3-Bedroom House</option>
@@ -642,7 +642,7 @@
                       </select>
                     </div>
                     <div class="calc-field"><label>No. of Floors</label>
-                      <select id="floors" onchange="calcMaterials()">
+                      <select id="floors" aria-label="Number of Floors" onchange="calcMaterials()">
                         <option value="1" selected>1 Floor</option>
                         <option value="2">2 Floors</option>
                         <option value="3">3 Floors</option>
@@ -998,7 +998,7 @@
           <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com" id="f-email"></div>
           <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+233 XX XXX XXXX" id="f-phone"></div>
           <div class="form-field"><label>Your Industry</label>
-            <select id="f-industry">
+            <select id="f-industry" aria-label="Your Industry">
               <option value="">Select your industry</option>
               <option>Retail &amp; Commerce</option>
               <option>Education</option>

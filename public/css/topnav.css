@@ -75,7 +75,7 @@
   background: #1da851;
 }
 
-/* ── AI CHAT TRIGGER BUTTON ── */
+/* ── AI CHAT TRIGGER ── */
 .btn-chat-trigger {
   background: linear-gradient(135deg, var(--primary), var(--teal));
   color: var(--white);
@@ -93,4 +93,19 @@
 
 .btn-chat-trigger:hover {
   opacity: 0.85;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  #topnav {
+    padding: 0.75rem 1rem;
+  }
+
+  .btn-whatsapp span {
+    display: none;
+  }
+
+  .breadcrumb {
+    font-size: 0.7rem;
+  }
 }
