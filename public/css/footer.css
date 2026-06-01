@@ -1,0 +1,100 @@
+/* ============================================================
+   FOOTER.CSS — Site Footer
+   A. Elnerge Technologies
+   ============================================================ */
+
+footer {
+  background: var(--primary-dark);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2rem 2.5rem;
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ── BRAND ── */
+.footer-brand img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.3);
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.footer-brand p {
+  font-size: 0.76rem;
+  line-height: 1.7;
+  max-width: 230px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── FOOTER COLUMNS ── */
+.footer-col h5 {
+  font-size: 0.62rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  margin-bottom: 0.35rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+/* ── BOTTOM BAR ── */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.7rem;
+}
+
+.footer-bottom .copyright {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom .tagline {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

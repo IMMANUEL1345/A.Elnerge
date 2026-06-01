@@ -1,0 +1,329 @@
+/* ============================================================
+   DEMO.CSS — Interactive Demo Section + BuildSmart Calculator
+   A. Elnerge Technologies
+   ============================================================ */
+
+/* ── PRODUCT TABS ── */
+.demo-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.demo-tab {
+  padding: 0.45rem 1rem;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.demo-tab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.demo-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* ── DEMO STAGE ── */
+.demo-stage {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 400px;
+}
+
+/* ── DEMO PANELS ── */
+.demo-panel {
+  display: none;
+}
+
+.demo-panel.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-top {
+  display: flex;
+  flex: 1;
+}
+
+/* ── LEFT SCREEN NAVIGATION ── */
+.demo-side {
+  width: 190px;
+  flex-shrink: 0;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.demo-side-title {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0 1rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.demo-screen-nav {
+  list-style: none;
+}
+
+.demo-screen-nav li {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.demo-screen-nav li:hover {
+  background: var(--border);
+  color: var(--primary);
+}
+
+.demo-screen-nav li.active {
+  background: rgba(27, 77, 142, 0.06);
+  color: var(--primary);
+  border-left-color: var(--primary);
+  font-weight: 700;
+}
+
+.demo-screen-nav li .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── SCREEN CONTENT AREA ── */
+.demo-body {
+  flex: 1;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  overflow: hidden;
+}
+
+/* ── INDIVIDUAL SCREENS ── */
+.screen {
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.screen.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.screen-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.screen-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.screen-badge {
+  background: linear-gradient(135deg, var(--primary), var(--teal));
+  color: var(--white);
+  padding: 0.18rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.screen-desc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── VIDEO SECTION INSIDE DEMO ── */
+.demo-video-wrap {
+  padding: 1rem 1.4rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.demo-video-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.video-placeholder {
+  background: var(--white);
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.video-play-btn {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary), var(--teal));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.video-info p {
+  font-size: 0.78rem;
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.video-info span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* ── DEMO FOOTER BUTTONS ── */
+.demo-footer {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  padding: 0.8rem 1.4rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+
+.demo-btn {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--text-mid);
+  padding: 0.42rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.demo-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.demo-btn.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.demo-btn.primary:hover {
+  background: var(--primary-light);
+}
+
+/* ── BUILDSMART CALCULATOR ── */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.calc-field label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.calc-field select,
+.calc-field input {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  border-radius: var(--radius-sm);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.calc-field select:focus,
+.calc-field input:focus {
+  border-color: var(--primary);
+}
+
+.calc-results-title {
+  font-size: 0.65rem;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0.7rem 0 0.4rem;
+}
+
+.material-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.material-icon { font-size: 0.95rem; width: 20px; }
+.material-name { font-size: 0.75rem; color: var(--text-mid); flex: 1; }
+.material-qty  { font-weight: 700; font-size: 0.82rem; color: var(--primary); }
+.material-unit { font-size: 0.62rem; color: var(--text-muted); margin-left: 0.15rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .demo-side {
+    display: none;
+  }
+}

@@ -1,0 +1,108 @@
+/* ============================================================
+   WHY.CSS — Why Elnerge & Industries We Serve
+   A. Elnerge Technologies
+   ============================================================ */
+
+/* ── WHY ELNERGE CARDS ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.why-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.why-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.why-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.why-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.4rem;
+}
+
+.why-card p {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── INDUSTRIES GRID ── */
+.ind-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.ind-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 0.7rem;
+  text-align: center;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.ind-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 4px 12px rgba(14, 155, 138, 0.1);
+}
+
+.ind-card .em {
+  font-size: 1.7rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ind-card .nm {
+  font-size: 0.65rem;
+  color: var(--text-mid);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ind-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ind-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

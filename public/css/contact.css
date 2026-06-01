@@ -1,0 +1,208 @@
+/* ============================================================
+   CONTACT.CSS — Contact Form & Info Section
+   A. Elnerge Technologies
+   ============================================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── INFO CARD ── */
+.contact-info {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  color: var(--white);
+}
+
+.contact-info h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.contact-info p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+
+.contact-detail {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.contact-detail strong {
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 75px;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── WHATSAPP CTA ── */
+.btn-whatsapp-large {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+  margin-top: 1.2rem;
+  width: 100%;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-whatsapp-large:hover {
+  background: #1da851;
+}
+
+/* ── CONTACT QUOTE ── */
+.contact-quote {
+  background: rgba(0, 198, 179, 0.1);
+  border-left: 3px solid var(--accent);
+  padding: 0.9rem 1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 1.2rem;
+}
+
+.contact-quote p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0 !important;
+}
+
+.contact-quote span {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 700;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+/* ── FORM CARD ── */
+.contact-form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+}
+
+.contact-form h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1.4rem;
+}
+
+/* ── FORM FIELDS ── */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  margin-bottom: 0.9rem;
+}
+
+.form-field label {
+  font-size: 0.67rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--primary);
+}
+
+.form-field textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.form-field select option {
+  background: var(--white);
+}
+
+/* ── SUBMIT BUTTON ── */
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--teal));
+  color: var(--white);
+  border: none;
+  padding: 0.78rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: opacity 0.2s;
+  margin-top: 0.4rem;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}
+
+/* ── SUCCESS MESSAGE ── */
+.form-success {
+  background: #E6F9F3;
+  border: 1px solid #0B7B5C;
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  color: #0B7B5C;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+  margin-top: 0.8rem;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

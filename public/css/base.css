@@ -1,0 +1,262 @@
+/* ============================================================
+   BASE.CSS — Reset, Variables, Fonts, Global Styles
+   A. Elnerge Technologies
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ── CSS VARIABLES ── */
+:root {
+  --primary:        #1B4D8E;
+  --primary-dark:   #0F3260;
+  --primary-light:  #2E6DB4;
+  --teal:           #0E9B8A;
+  --teal-light:     #12B5A2;
+  --accent:         #00C6B3;
+  --white:          #FFFFFF;
+  --bg:             #F4F7FB;
+  --bg2:            #EEF3FA;
+  --sidebar-w:      250px;
+  --text:           #1A2B45;
+  --text-mid:       #4A5E7A;
+  --text-muted:     #8A9BB5;
+  --border:         #D8E4F0;
+  --gold:           #F0A500;
+  --green:          #0B7B5C;
+  --red:            #C0392B;
+  --shadow-sm:      0 2px 8px rgba(27, 77, 142, 0.08);
+  --shadow-md:      0 4px 16px rgba(27, 77, 142, 0.12);
+  --shadow-lg:      0 8px 32px rgba(27, 77, 142, 0.15);
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      14px;
+  --transition:     all 0.25s ease;
+}
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar         { width: 4px; }
+::-webkit-scrollbar-track   { background: transparent; }
+::-webkit-scrollbar-thumb   { background: var(--border); border-radius: 2px; }
+
+/* ── UTILITY CLASSES ── */
+.section-head {
+  margin-bottom: 1.8rem;
+}
+
+.section-head h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 0.2rem;
+}
+
+.section-head p {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.sec-divider {
+  height: 3px;
+  width: 44px;
+  background: linear-gradient(to right, var(--primary), var(--teal));
+  border-radius: 2px;
+  margin: 0.5rem 0 0;
+}
+
+.content-wrap {
+  padding: 2rem 2.5rem;
+}
+
+/* ── PAGE SECTIONS ── */
+.page-section {
+  display: none;
+}
+
+.page-section.active {
+  display: block;
+}
+
+/* ── STATUS PILLS ── */
+.pill {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.pill-green  { background: #E6F9F3; color: #0B7B5C; }
+.pill-blue   { background: #E8F0FB; color: var(--primary); }
+.pill-red    { background: #FDECEA; color: #C0392B; }
+.pill-yellow { background: #FEF5E4; color: #B7770D; }
+
+/* ── MOCK UI ELEMENTS (shared across demo screens) ── */
+.mock-ui {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.mock-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.mock-stat {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.mock-stat .n {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.mock-stat .l {
+  font-size: 0.58rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.mock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mock-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  min-width: 85px;
+  font-weight: 500;
+}
+
+.mock-val {
+  font-size: 0.78rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--primary), var(--teal));
+  border-radius: 3px;
+}
+
+.mock-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+
+.mock-table th {
+  background: var(--bg2);
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.mock-table td {
+  padding: 0.48rem 0.6rem;
+  color: var(--text);
+  border-bottom: 1px solid rgba(216, 228, 240, 0.5);
+}
+
+.mock-table tr:hover td {
+  background: var(--bg2);
+}
+
+.mock-btn {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: var(--transition);
+}
+
+.mock-btn:hover {
+  background: var(--primary-light);
+}
+
+/* ── RESPONSIVE BREAKPOINTS ── */
+@media (max-width: 960px) {
+  .content-wrap {
+    padding: 1.5rem;
+  }
+}

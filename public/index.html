@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.Elnerge Technologies – Intelligent Business Applications</title>
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+
+  <!-- ═══════════════════════════════════════════
+       CSS FILES — One file per section
+       Easy to find, easy to edit, easy to review
+  ════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/topnav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/story.css">
+  <link rel="stylesheet" href="css/team.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/why.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     SIDEBAR — Fixed, never collapses
+════════════════════════════════════════════ -->
+<nav id="sidebar">
+
+  <div class="sidebar-logo">
+    <img src="assets/logo/logo.png" alt="A. Elnerge Technologies">
+  </div>
+
+  <div class="sidebar-section">
+    <span class="sidebar-label">Main</span>
+    <a class="sidebar-link active" onclick="go('home', this)">
+      <span class="icon">🏠</span> Home
+    </a>
+    <a class="sidebar-link" onclick="go('story', this)">
+      <span class="icon">📖</span> Our Story
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <span class="sidebar-label">Products</span>
+    <a class="sidebar-link" onclick="go('products', this)">
+      <span class="icon">📦</span> IBA Suite Overview
+    </a>
+    <a class="sidebar-link" onclick="go('demo', this); switchDemo('tradedesk')">
+      <span class="icon">🛒</span> IBA TradeDesk
+    </a>
+    <a class="sidebar-link" onclick="go('demo', this); switchDemo('educlass')">
+      <span class="icon">🎓</span> IBA EduClass
+    </a>
+    <a class="sidebar-link" onclick="go('demo', this); switchDemo('sanctuary')">
+      <span class="icon">⛪</span> IBA Sanctuary
+    </a>
+    <a class="sidebar-link" onclick="go('demo', this); switchDemo('buildsmart')">
+      <span class="icon">🏗️</span> IBA BuildSmart
+    </a>
+    <a class="sidebar-link" onclick="go('demo', this); switchDemo('innvue')">
+      <span class="icon">🏨</span> IBA InnVue
+    </a>
+    <a class="sidebar-link" onclick="go('demo', this); switchDemo('transitflow')">
+      <span class="icon">🚌</span> IBA TransitFlow
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <span class="sidebar-label">Company</span>
+    <a class="sidebar-link" onclick="go('team', this)">
+      <span class="icon">👥</span> Our Team
+    </a>
+    <a class="sidebar-link" onclick="go('gallery', this)">
+      <span class="icon">🖼️</span> Media Gallery
+    </a>
+    <a class="sidebar-link" onclick="go('why', this)">
+      <span class="icon">⭐</span> Why Elnerge
+    </a>
+    <a class="sidebar-link" onclick="go('industries', this)">
+      <span class="icon">🌍</span> Industries
+    </a>
+    <a class="sidebar-link" onclick="go('contact', this)">
+      <span class="icon">✉️</span> Contact Us
+    </a>
+  </div>
+
+  <div class="sidebar-bottom">
+    <button class="btn-sidebar-cta" onclick="go('contact', null)">📅 Book a Demo</button>
+  </div>
+
+</nav>
+
+
+<!-- ═══════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════ -->
+<div id="main">
+
+  <!-- TOP NAV -->
+  <div id="topnav">
+    <div class="breadcrumb">
+      A.Elnerge Technologies &rsaquo;
+      <span id="breadcrumb-current">Home</span>
+    </div>
+    <div class="topnav-right">
+      <a class="btn-whatsapp" href="https://wa.me/233XXXXXXXXX" target="_blank" rel="noopener noreferrer">
+        💬 WhatsApp Us
+      </a>
+      <button class="btn-topnav" onclick="go('contact', null)">Book a Demo</button>
+      <button class="btn-chat-trigger" onclick="toggleChat()" title="AI Assistant">🤖</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       HOME SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-home" class="page-section active">
+    <div style="background:linear-gradient(135deg,#0F3260 0%,#1B4D8E 55%,#0E9B8A 100%);padding:4rem 2.5rem 3rem;color:#fff;position:relative;overflow:hidden;min-height:calc(100vh - 53px);display:flex;flex-direction:column;justify-content:center;">
+      <div style="position:absolute;right:-60px;top:-60px;width:380px;height:380px;border-radius:50%;background:rgba(0,198,179,0.08);pointer-events:none;"></div>
+      <div style="position:absolute;right:160px;bottom:-80px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;"></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">🌍 Built for Africa</div>
+          <h1 class="hero-h1">
+            Intelligently Constructed.<br>
+            <span>Personally Committed.</span>
+          </h1>
+          <p class="hero-p">
+            We are A. Elnerge Technologies — creators of the IBA Suite,
+            specialized software automating operations for Retail, Education,
+            Hospitality, Construction, Transport, and Faith-Based communities across Africa.
+          </p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="go('products', null)">Explore the Suite</button>
+            <button class="btn-outline" onclick="go('demo', null)">Try Interactive Demo</button>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><div class="num">6</div><div class="lbl">Industry Products</div></div>
+            <div class="hero-stat"><div class="num">1</div><div class="lbl">Unified Suite</div></div>
+            <div class="hero-stat"><div class="num">AI</div><div class="lbl">Powered Assistant</div></div>
+          </div>
+        </div>
+        <div class="hero-img-wrap">
+          <img
+            src="assets/gallery/photo1.jpg"
+            alt="A. Elnerge Technologies"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+          >
+          <div class="hero-img-placeholder" style="display:none;">
+            <div class="big">🏢</div>
+            <span>Add photo1.jpg to assets/gallery/</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       PRODUCTS SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-products" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head">
+        <h2>The IBA Suite</h2>
+        <p>Six deeply specialized Intelligent Business Applications — built for Africa, by Africa.</p>
+        <div class="sec-divider"></div>
+      </div>
+      <div class="cards-grid">
+
+        <!-- TradeDesk -->
+        <div class="card" onclick="go('demo', null); switchDemo('tradedesk')">
+          <img src="assets/products/tradedesk.jpg" class="card-product-img" alt="IBA TradeDesk"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="card-product-img-placeholder" style="display:none;">🛒</div>
+          <div class="card-icon-wrap">🛒</div>
+          <div class="card-industry">Retail &amp; Commerce</div>
+          <h3>IBA <span>TradeDesk</span></h3>
+          <div class="card-tagline">Sell Smarter. Stock Smarter.</div>
+          <ul class="card-features">
+            <li>Intelligent POS with customer history</li>
+            <li>Real-time stock sync — no overselling</li>
+            <li>Automated purchase orders</li>
+            <li>Multi-location stock tracking</li>
+          </ul>
+          <button class="card-btn">See Demo →</button>
+        </div>
+
+        <!-- EduClass -->
+        <div class="card" onclick="go('demo', null); switchDemo('educlass')">
+          <img src="assets/products/educlass.jpg" class="card-product-img" alt="IBA EduClass"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="card-product-img-placeholder" style="display:none;">🎓</div>
+          <div class="card-icon-wrap">🎓</div>
+          <div class="card-industry">Education</div>
+          <h3>IBA <span>EduClass</span></h3>
+          <div class="card-tagline">The Intelligent Classroom Manager.</div>
+          <ul class="card-features">
+            <li>Student enrollment &amp; records</li>
+            <li>Attendance &amp; report card generation</li>
+            <li>Fee &amp; payment management</li>
+            <li>Parent-teacher communication portal</li>
+          </ul>
+          <button class="card-btn">See Demo →</button>
+        </div>
+
+        <!-- Sanctuary -->
+        <div class="card" onclick="go('demo', null); switchDemo('sanctuary')">
+          <img src="assets/products/sanctuary.jpg" class="card-product-img" alt="IBA Sanctuary"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="card-product-img-placeholder" style="display:none;">⛪</div>
+          <div class="card-icon-wrap">⛪</div>
+          <div class="card-industry">Faith &amp; Community</div>
+          <h3>IBA <span>Sanctuary</span></h3>
+          <div class="card-tagline">The Intelligent Church Manager.</div>
+          <ul class="card-features">
+            <li>Member &amp; family database</li>
+            <li>Tithe &amp; donation tracking with receipts</li>
+            <li>Event &amp; service scheduling</li>
+            <li>Secure congregation communications</li>
+          </ul>
+          <button class="card-btn">See Demo →</button>
+        </div>
+
+        <!-- BuildSmart -->
+        <div class="card" onclick="go('demo', null); switchDemo('buildsmart')">
+          <img src="assets/products/buildsmart.jpg" class="card-product-img" alt="IBA BuildSmart"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="card-product-img-placeholder" style="display:none;">🏗️</div>
+          <div class="card-icon-wrap">🏗️</div>
+          <div class="card-industry">Construction</div>
+          <h3>IBA <span>BuildSmart</span></h3>
+          <div class="card-tagline">The Intelligent Project Planner.</div>
+          <ul class="card-features">
+            <li>Live material quantity calculator</li>
+            <li>Real-time cost estimation (GH₵)</li>
+            <li>Phase-by-phase project breakdown</li>
+            <li>Contractor &amp; supplier management</li>
+          </ul>
+          <button class="card-btn">See Demo →</button>
+        </div>
+
+        <!-- InnVue -->
+        <div class="card" onclick="go('demo', null); switchDemo('innvue')">
+          <img src="assets/products/innvue.jpg" class="card-product-img" alt="IBA InnVue"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="card-product-img-placeholder" style="display:none;">🏨</div>
+          <div class="card-icon-wrap">🏨</div>
+          <div class="card-industry">Hospitality</div>
+          <h3>IBA <span>InnVue</span></h3>
+          <div class="card-tagline">The Intelligent Hospitality Hub.</div>
+          <ul class="card-features">
+            <li>Front desk &amp; reservation management</li>
+            <li>Online booking integration</li>
+            <li>Room status &amp; housekeeping</li>
+            <li>Guest history &amp; billing</li>
+          </ul>
+          <button class="card-btn">See Demo →</button>
+        </div>
+
+        <!-- TransitFlow -->
+        <div class="card" onclick="go('demo', null); switchDemo('transitflow')">
+          <img src="assets/products/transitflow.jpg" class="card-product-img" alt="IBA TransitFlow"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="card-product-img-placeholder" style="display:none;">🚌</div>
+          <div class="card-icon-wrap">🚌</div>
+          <div class="card-industry">Transport</div>
+          <h3>IBA <span>TransitFlow</span></h3>
+          <div class="card-tagline">The Intelligent Fleet Organizer.</div>
+          <ul class="card-features">
+            <li>Fleet registration &amp; tracking</li>
+            <li>Route planning &amp; scheduling</li>
+            <li>Driver &amp; conductor assignment</li>
+            <li>Maintenance &amp; fuel logs</li>
+          </ul>
+          <button class="card-btn">See Demo →</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       OUR STORY SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-story" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head">
+        <h2>Our Story</h2>
+        <p>A name built from a name unlike any other.</p>
+        <div class="sec-divider"></div>
+      </div>
+      <div class="story-grid">
+
+        <!-- Name blocks -->
+        <div>
+          <div class="name-block">
+            <div class="name-letters">EL</div>
+            <div class="name-meaning">
+              <h4>From Immanuel</h4>
+              <p>The last two letters of <strong>Immanuel</strong>. The promise of purpose.</p>
+            </div>
+          </div>
+          <div class="name-block">
+            <div class="name-letters">NERGE</div>
+            <div class="name-meaning">
+              <h4>From Boanerge</h4>
+              <p>The last five letters of <strong>Boanerge</strong>. The strength to build.</p>
+            </div>
+          </div>
+          <div class="name-block">
+            <div class="name-letters">A.</div>
+            <div class="name-meaning">
+              <h4>From Agbemabiase</h4>
+              <p>The initial of <strong>Agbemabiase</strong>. The legacy of family.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story card -->
+        <div class="story-card">
+          <div class="founder-wrap">
+            <img src="assets/team/founder.jpg" class="founder-photo" alt="Immanuel Boanerge Agbemabiase"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="founder-photo-placeholder" style="display:none;">👤</div>
+            <div class="founder-info">
+              <h4>Immanuel Boanerge Agbemabiase</h4>
+              <p>Founder &amp; CEO, A. Elnerge Technologies</p>
+            </div>
+          </div>
+          <h3>Every line of code carries a founder's signature.</h3>
+          <p>A. Elnerge Technologies is not named after a place, a trend, or an acronym already in use by a dozen other companies. It is built from the very letters of our founder's name.</p>
+          <p>Beginning with a final-year project tackling transport logistics, Immanuel saw a universal truth: every industry is held back by fragmented, non-intelligent tools. This sparked the IBA Suite.</p>
+          <div class="story-quote">
+            "That's Intelligent. That's Business. That's <span>Elnerge.</span>"
+            <br><small style="font-size:0.72rem;color:var(--text-muted);font-style:normal;">— Immanuel Boanerge Agbemabiase, Founder</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       DEMO SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-demo" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head">
+        <h2>Interactive Demo</h2>
+        <p>Walk through each product. No sign-up required.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <!-- Product tabs -->
+      <div class="demo-tabs">
+        <button class="demo-tab active" id="dt-tradedesk"   onclick="switchDemo('tradedesk',   this)">🛒 TradeDesk</button>
+        <button class="demo-tab"        id="dt-educlass"    onclick="switchDemo('educlass',    this)">🎓 EduClass</button>
+        <button class="demo-tab"        id="dt-sanctuary"   onclick="switchDemo('sanctuary',   this)">⛪ Sanctuary</button>
+        <button class="demo-tab"        id="dt-buildsmart"  onclick="switchDemo('buildsmart',  this)">🏗️ BuildSmart</button>
+        <button class="demo-tab"        id="dt-innvue"      onclick="switchDemo('innvue',      this)">🏨 InnVue</button>
+        <button class="demo-tab"        id="dt-transitflow" onclick="switchDemo('transitflow', this)">🚌 TransitFlow</button>
+      </div>
+
+      <div class="demo-stage">
+
+        <!-- ── TRADEDESK ── -->
+        <div class="demo-panel active" id="p-tradedesk">
+          <div class="demo-top">
+            <div class="demo-side">
+              <span class="demo-side-title">TradeDesk</span>
+              <ul class="demo-screen-nav" id="n-tradedesk">
+                <li class="active" onclick="showScreen('tradedesk', 0, this)"><span class="dot"></span>Sales Dashboard</li>
+                <li onclick="showScreen('tradedesk', 1, this)"><span class="dot"></span>POS Counter</li>
+                <li onclick="showScreen('tradedesk', 2, this)"><span class="dot"></span>Stockroom</li>
+                <li onclick="showScreen('tradedesk', 3, this)"><span class="dot"></span>Supplier Orders</li>
+              </ul>
+            </div>
+            <div class="demo-body">
+
+              <div class="screen active" id="tradedesk-0">
+                <div class="screen-hdr">
+                  <span class="screen-title">Sales Dashboard</span>
+                  <span class="screen-badge">Live View</span>
+                </div>
+                <div class="mock-ui">
+                  <div class="mock-stats">
+                    <div class="mock-stat"><div class="n">GH&#8373;4,820</div><div class="l">Today's Sales</div></div>
+                    <div class="mock-stat"><div class="n">134</div><div class="l">Transactions</div></div>
+                    <div class="mock-stat"><div class="n">12</div><div class="l">Low Stock Alerts</div></div>
+                  </div>
+                  <div class="mock-row"><div class="mock-label">Indomie (carton)</div><div class="bar-wrap"><div class="bar" style="width:25%;background:#E74C3C"></div></div><span style="font-size:.7rem;color:#C0392B;font-weight:700">LOW</span></div>
+                  <div class="mock-row"><div class="mock-label">Rice 50kg</div><div class="bar-wrap"><div class="bar" style="width:72%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">72%</span></div>
+                  <div class="mock-row"><div class="mock-label">Cooking Oil</div><div class="bar-wrap"><div class="bar" style="width:45%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">45%</span></div>
+                </div>
+                <div class="screen-desc">Real-time overview of daily sales, top products, and instant low-stock warnings.</div>
+              </div>
+
+              <div class="screen" id="tradedesk-1">
+                <div class="screen-hdr"><span class="screen-title">POS Counter</span><span class="screen-badge">Counter Module</span></div>
+                <div class="mock-ui">
+                  <div class="mock-row"><div class="mock-label">Customer</div><div class="mock-val">Walk-in Customer</div></div>
+                  <table class="mock-table">
+                    <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead>
+                    <tbody>
+                      <tr><td>Indomie Chicken</td><td>3</td><td>GH&#8373;2.50</td><td>GH&#8373;7.50</td></tr>
+                      <tr><td>Milo 400g</td><td>1</td><td>GH&#8373;28.00</td><td>GH&#8373;28.00</td></tr>
+                      <tr><td>Toilet Rolls (6pk)</td><td>2</td><td>GH&#8373;15.00</td><td>GH&#8373;30.00</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="mock-row">
+                    <div class="mock-label" style="font-weight:700;color:var(--primary-dark)">Total</div>
+                    <div class="mock-val" style="color:var(--primary);font-size:1rem;font-weight:800">GH&#8373;65.50</div>
+                    <button class="mock-btn" style="margin-left:auto">Checkout</button>
+                  </div>
+                </div>
+                <div class="screen-desc">Fast checkout with multiple payment methods and automatic stock deduction on every sale.</div>
+              </div>
+
+              <div class="screen" id="tradedesk-2">
+                <div class="screen-hdr"><span class="screen-title">Stockroom Manager</span><span class="screen-badge">Stockroom Module</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table">
+                    <thead><tr><th>Product</th><th>In Stock</th><th>Min Level</th><th>Status</th></tr></thead>
+                    <tbody>
+                      <tr><td>Indomie (carton)</td><td>8</td><td>20</td><td><span class="pill pill-red">Reorder</span></td></tr>
+                      <tr><td>Rice 50kg bags</td><td>36</td><td>15</td><td><span class="pill pill-green">OK</span></td></tr>
+                      <tr><td>Cooking Oil 5L</td><td>22</td><td>10</td><td><span class="pill pill-green">OK</span></td></tr>
+                      <tr><td>Milo 400g</td><td>14</td><td>12</td><td><span class="pill pill-yellow">Watch</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="screen-desc">Complete warehouse visibility with auto-triggered purchase orders at minimum stock levels.</div>
+              </div>
+
+              <div class="screen" id="tradedesk-3">
+                <div class="screen-hdr"><span class="screen-title">Supplier Order</span><span class="screen-badge">Auto-Generated</span></div>
+                <div class="mock-ui">
+                  <div class="mock-row"><div class="mock-label">Supplier</div><div class="mock-val">Unilever Ghana Ltd.</div></div>
+                  <div class="mock-row"><div class="mock-label">Order No.</div><div class="mock-val">PO-2024-00841</div></div>
+                  <div class="mock-row"><div class="mock-label">Status</div><div><span class="pill pill-yellow">Pending Approval</span></div></div>
+                  <table class="mock-table" style="margin-top:.4rem">
+                    <thead><tr><th>Item</th><th>Qty</th><th>Unit Cost</th><th>Total</th></tr></thead>
+                    <tbody><tr><td>Indomie Chicken (ctn)</td><td>50</td><td>GH&#8373;32.00</td><td>GH&#8373;1,600</td></tr></tbody>
+                  </table>
+                  <div style="margin-top:.4rem"><button class="mock-btn">Approve &amp; Send</button></div>
+                </div>
+                <div class="screen-desc">Purchase orders auto-generated with supplier details — ready for one-click approval.</div>
+              </div>
+
+            </div>
+          </div>
+          <div class="demo-video-wrap">
+            <div class="demo-video-label">📹 Product Demo Video</div>
+            <div class="video-placeholder">
+              <div class="video-play-btn">▶</div>
+              <div class="video-info">
+                <p>IBA TradeDesk — Full Demo</p>
+                <span>Add video to assets/videos/tradedesk-demo.mp4 or paste YouTube link</span>
+              </div>
+            </div>
+          </div>
+          <div class="demo-footer">
+            <button class="demo-btn" onclick="demoBack()">← Previous</button>
+            <button class="demo-btn primary" onclick="demoNext()">Next Screen →</button>
+            <button class="demo-btn" onclick="go('contact', null)">Request Full Demo ↗</button>
+          </div>
+        </div>
+
+        <!-- ── EDUCLASS ── -->
+        <div class="demo-panel" id="p-educlass">
+          <div class="demo-top">
+            <div class="demo-side">
+              <span class="demo-side-title">EduClass</span>
+              <ul class="demo-screen-nav" id="n-educlass">
+                <li class="active" onclick="showScreen('educlass',0,this)"><span class="dot"></span>School Overview</li>
+                <li onclick="showScreen('educlass',1,this)"><span class="dot"></span>Student Records</li>
+                <li onclick="showScreen('educlass',2,this)"><span class="dot"></span>Attendance</li>
+                <li onclick="showScreen('educlass',3,this)"><span class="dot"></span>Report Card</li>
+              </ul>
+            </div>
+            <div class="demo-body">
+              <div class="screen active" id="educlass-0">
+                <div class="screen-hdr"><span class="screen-title">School Dashboard</span><span class="screen-badge">Term 2, 2024</span></div>
+                <div class="mock-ui">
+                  <div class="mock-stats">
+                    <div class="mock-stat"><div class="n">842</div><div class="l">Students</div></div>
+                    <div class="mock-stat"><div class="n">36</div><div class="l">Staff</div></div>
+                    <div class="mock-stat"><div class="n">GH&#8373;12,400</div><div class="l">Fees This Week</div></div>
+                  </div>
+                  <div class="mock-row"><div class="mock-label">Attendance Today</div><div class="bar-wrap"><div class="bar" style="width:91%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">91%</span></div>
+                  <div class="mock-row"><div class="mock-label">Fees Collected</div><div class="bar-wrap"><div class="bar" style="width:68%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">68%</span></div>
+                </div>
+                <div class="screen-desc">Complete snapshot — enrollment, attendance, and fee collection at a glance.</div>
+              </div>
+              <div class="screen" id="educlass-1">
+                <div class="screen-hdr"><span class="screen-title">Student Record</span><span class="screen-badge">Profile View</span></div>
+                <div class="mock-ui">
+                  <div class="mock-row"><div class="mock-label">Name</div><div class="mock-val">Abena Mensah</div></div>
+                  <div class="mock-row"><div class="mock-label">Class</div><div class="mock-val">JHS 2B</div></div>
+                  <div class="mock-row"><div class="mock-label">Student ID</div><div class="mock-val">STU-2022-0491</div></div>
+                  <div class="mock-row"><div class="mock-label">Fee Status</div><div><span class="pill pill-green">Paid – Term 2</span></div></div>
+                  <div class="mock-row"><div class="mock-label">Avg. Grade</div><div class="mock-val" style="color:var(--primary);font-weight:700">78.4% — B+</div></div>
+                </div>
+                <div class="screen-desc">Every student's academic, attendance, and financial record in one profile.</div>
+              </div>
+              <div class="screen" id="educlass-2">
+                <div class="screen-hdr"><span class="screen-title">Class Attendance</span><span class="screen-badge">JHS 2B — Today</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table">
+                    <thead><tr><th>Student</th><th>Status</th><th>Time</th></tr></thead>
+                    <tbody>
+                      <tr><td>Abena Mensah</td><td><span class="pill pill-green">Present</span></td><td>07:42am</td></tr>
+                      <tr><td>Kofi Asante</td><td><span class="pill pill-green">Present</span></td><td>07:55am</td></tr>
+                      <tr><td>Ama Boateng</td><td><span class="pill pill-red">Absent</span></td><td>—</td></tr>
+                      <tr><td>Yaw Darko</td><td><span class="pill pill-yellow">Late</span></td><td>08:31am</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="screen-desc">Digital register with real-time tracking and automatic parent SMS for absent students.</div>
+              </div>
+              <div class="screen" id="educlass-3">
+                <div class="screen-hdr"><span class="screen-title">Report Card</span><span class="screen-badge">Term 2 — Generated</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table">
+                    <thead><tr><th>Subject</th><th>Score</th><th>Grade</th><th>Remark</th></tr></thead>
+                    <tbody>
+                      <tr><td>Mathematics</td><td>82</td><td>A2</td><td>Excellent</td></tr>
+                      <tr><td>English</td><td>76</td><td>B2</td><td>Very Good</td></tr>
+                      <tr><td>Science</td><td>79</td><td>B1</td><td>Good</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="mock-row" style="margin-top:.4rem">
+                    <div class="mock-label">Position</div>
+                    <div class="mock-val" style="color:var(--primary);font-weight:700">4th / 38</div>
+                    <button class="mock-btn" style="margin-left:auto">Print / Share</button>
+                  </div>
+                </div>
+                <div class="screen-desc">Professional report cards generated automatically — printable in one click.</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-video-wrap"><div class="demo-video-label">📹 Product Demo Video</div><div class="video-placeholder"><div class="video-play-btn">▶</div><div class="video-info"><p>IBA EduClass — Full Demo</p><span>Add video to assets/videos/educlass-demo.mp4</span></div></div></div>
+          <div class="demo-footer"><button class="demo-btn" onclick="demoBack()">← Previous</button><button class="demo-btn primary" onclick="demoNext()">Next Screen →</button><button class="demo-btn" onclick="go('contact',null)">Request Full Demo ↗</button></div>
+        </div>
+
+        <!-- ── SANCTUARY ── -->
+        <div class="demo-panel" id="p-sanctuary">
+          <div class="demo-top">
+            <div class="demo-side">
+              <span class="demo-side-title">Sanctuary</span>
+              <ul class="demo-screen-nav" id="n-sanctuary">
+                <li class="active" onclick="showScreen('sanctuary',0,this)"><span class="dot"></span>Ministry Overview</li>
+                <li onclick="showScreen('sanctuary',1,this)"><span class="dot"></span>Member Directory</li>
+                <li onclick="showScreen('sanctuary',2,this)"><span class="dot"></span>Tithes &amp; Offerings</li>
+                <li onclick="showScreen('sanctuary',3,this)"><span class="dot"></span>Events &amp; Services</li>
+              </ul>
+            </div>
+            <div class="demo-body">
+              <div class="screen active" id="sanctuary-0">
+                <div class="screen-hdr"><span class="screen-title">Ministry Dashboard</span><span class="screen-badge">This Month</span></div>
+                <div class="mock-ui">
+                  <div class="mock-stats"><div class="mock-stat"><div class="n">1,240</div><div class="l">Members</div></div><div class="mock-stat"><div class="n">GH&#8373;38,500</div><div class="l">Offerings</div></div><div class="mock-stat"><div class="n">8</div><div class="l">Events</div></div></div>
+                  <div class="mock-row"><div class="mock-label">Sunday Attendance</div><div class="bar-wrap"><div class="bar" style="width:83%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">1,030</span></div>
+                  <div class="mock-row"><div class="mock-label">New Members</div><div class="mock-val" style="color:#0B7B5C;font-weight:700">+24 this month</div></div>
+                </div>
+                <div class="screen-desc">A dignified overview of your congregation's health — attendance, giving, and growth.</div>
+              </div>
+              <div class="screen" id="sanctuary-1">
+                <div class="screen-hdr"><span class="screen-title">Member Directory</span><span class="screen-badge">Family Records</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Member</th><th>Family</th><th>Cell Group</th><th>Status</th></tr></thead><tbody>
+                    <tr><td>Elder Kwesi Boateng</td><td>Boateng Family</td><td>Zone A</td><td><span class="pill pill-green">Active</span></td></tr>
+                    <tr><td>Sister Adwoa Frimpong</td><td>Frimpong Family</td><td>Zone B</td><td><span class="pill pill-green">Active</span></td></tr>
+                    <tr><td>Brother Nana Osei</td><td>Osei Family</td><td>Zone C</td><td><span class="pill pill-yellow">Follow-up</span></td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Complete member profiles with family links and visitation follow-up tracking.</div>
+              </div>
+              <div class="screen" id="sanctuary-2">
+                <div class="screen-hdr"><span class="screen-title">Tithes &amp; Offerings</span><span class="screen-badge">With Receipts</span></div>
+                <div class="mock-ui">
+                  <div class="mock-row"><div class="mock-label">Member</div><div class="mock-val">Elder Kwesi Boateng</div></div>
+                  <div class="mock-row"><div class="mock-label">Tithe</div><div class="mock-val" style="color:var(--primary);font-weight:700">GH&#8373;500.00</div></div>
+                  <div class="mock-row"><div class="mock-label">Offering</div><div class="mock-val">GH&#8373;50.00</div></div>
+                  <div class="mock-row"><div class="mock-label">Receipt No.</div><div class="mock-val">RCP-2025-04421</div><button class="mock-btn" style="margin-left:auto">Send Receipt</button></div>
+                </div>
+                <div class="screen-desc">Discreet, dignified donation tracking with digital receipts for every giver.</div>
+              </div>
+              <div class="screen" id="sanctuary-3">
+                <div class="screen-hdr"><span class="screen-title">Events &amp; Services</span><span class="screen-badge">Schedule</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Event</th><th>Date</th><th>Time</th><th>Status</th></tr></thead><tbody>
+                    <tr><td>Sunday Service</td><td>26 Jan</td><td>9:00am</td><td><span class="pill pill-green">Confirmed</span></td></tr>
+                    <tr><td>Prayer &amp; Fasting</td><td>29 Jan</td><td>5:00am</td><td><span class="pill pill-green">Confirmed</span></td></tr>
+                    <tr><td>Youth Convention</td><td>1 Feb</td><td>All Day</td><td><span class="pill pill-yellow">Planning</span></td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">All church events in one organized calendar with congregation announcement tools.</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-video-wrap"><div class="demo-video-label">📹 Product Demo Video</div><div class="video-placeholder"><div class="video-play-btn">▶</div><div class="video-info"><p>IBA Sanctuary — Full Demo</p><span>Add video to assets/videos/sanctuary-demo.mp4</span></div></div></div>
+          <div class="demo-footer"><button class="demo-btn" onclick="demoBack()">← Previous</button><button class="demo-btn primary" onclick="demoNext()">Next Screen →</button><button class="demo-btn" onclick="go('contact',null)">Request Full Demo ↗</button></div>
+        </div>
+
+        <!-- ── BUILDSMART ── -->
+        <div class="demo-panel" id="p-buildsmart">
+          <div class="demo-top">
+            <div class="demo-side">
+              <span class="demo-side-title">BuildSmart</span>
+              <ul class="demo-screen-nav" id="n-buildsmart">
+                <li class="active" onclick="showScreen('buildsmart',0,this)"><span class="dot"></span>Material Calculator</li>
+                <li onclick="showScreen('buildsmart',1,this)"><span class="dot"></span>Project Phases</li>
+                <li onclick="showScreen('buildsmart',2,this)"><span class="dot"></span>Cost Estimation</li>
+                <li onclick="showScreen('buildsmart',3,this)"><span class="dot"></span>Contractor Board</li>
+              </ul>
+            </div>
+            <div class="demo-body">
+              <div class="screen active" id="buildsmart-0">
+                <div class="screen-hdr"><span class="screen-title">Material Calculator</span><span class="screen-badge">Showstopper Feature</span></div>
+                <div class="mock-ui">
+                  <div class="calc-grid">
+                    <div class="calc-field"><label for="build-type">Building Type</label>
+                      <select id="build-type" onchange="calcMaterials()">
+                        <option value="1bed">1-Bedroom House</option>
+                        <option value="2bed" selected>2-Bedroom House</option>
+                        <option value="3bed">3-Bedroom House</option>
+                        <option value="office">Office Block</option>
+                        <option value="shop">Shop / Store</option>
+                      </select>
+                    </div>
+                    <div class="calc-field"><label for="floors">No. of Floors</label>
+                      <select id="floors" onchange="calcMaterials()">
+                        <option value="1" selected>1 Floor</option>
+                        <option value="2">2 Floors</option>
+                        <option value="3">3 Floors</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="calc-results-title">Estimated Materials Required</div>
+                  <div id="mat-out"></div>
+                </div>
+                <div class="screen-desc">Select building type and instantly see every material needed. Ask our AI assistant for cost breakdowns.</div>
+              </div>
+              <div class="screen" id="buildsmart-1">
+                <div class="screen-hdr"><span class="screen-title">Project Phases</span><span class="screen-badge">2-Bedroom</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Phase</th><th>Description</th><th>Duration</th><th>Status</th></tr></thead><tbody>
+                    <tr><td>Phase 1</td><td>Foundation &amp; Substructure</td><td>3 weeks</td><td><span class="pill pill-green">Complete</span></td></tr>
+                    <tr><td>Phase 2</td><td>Walling (Ground Floor)</td><td>4 weeks</td><td><span class="pill pill-yellow">In Progress</span></td></tr>
+                    <tr><td>Phase 3</td><td>Roofing &amp; Lintel</td><td>2 weeks</td><td><span class="pill pill-red">Pending</span></td></tr>
+                    <tr><td>Phase 4</td><td>Plastering &amp; Finishing</td><td>3 weeks</td><td><span class="pill pill-red">Pending</span></td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Every construction phase planned in advance with duration estimates and material requirements.</div>
+              </div>
+              <div class="screen" id="buildsmart-2">
+                <div class="screen-hdr"><span class="screen-title">Cost Estimation</span><span class="screen-badge">Ghana Market Prices</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Material</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr></thead><tbody>
+                    <tr><td>Sandcrete Blocks</td><td>2,800</td><td>GH&#8373;4.50</td><td>GH&#8373;12,600</td></tr>
+                    <tr><td>Cement (50kg bags)</td><td>180</td><td>GH&#8373;85.00</td><td>GH&#8373;15,300</td></tr>
+                    <tr><td>Iron Rods (12mm)</td><td>120</td><td>GH&#8373;65.00</td><td>GH&#8373;7,800</td></tr>
+                    <tr><td>Sharp Sand (trips)</td><td>6</td><td>GH&#8373;800</td><td>GH&#8373;4,800</td></tr>
+                  </tbody></table>
+                  <div class="mock-row" style="margin-top:.4rem"><div class="mock-label" style="font-weight:700">Total</div><div class="mock-val" style="color:var(--primary);font-size:1rem;font-weight:800">GH&#8373;40,500</div></div>
+                </div>
+                <div class="screen-desc">Real cost estimates based on current Ghanaian market prices — know your budget before you break ground.</div>
+              </div>
+              <div class="screen" id="buildsmart-3">
+                <div class="screen-hdr"><span class="screen-title">Contractor Board</span><span class="screen-badge">Team &amp; Suppliers</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Contractor</th><th>Role</th><th>Phase</th><th>Rating</th></tr></thead><tbody>
+                    <tr><td>Mensah &amp; Sons Ltd</td><td>Mason (Lead)</td><td>Phase 2</td><td style="color:var(--gold)">★★★★★</td></tr>
+                    <tr><td>Kofi Ironworks</td><td>Steel Fixer</td><td>Phase 2</td><td style="color:var(--gold)">★★★★☆</td></tr>
+                    <tr><td>Accra Sand &amp; Gravel</td><td>Supplier</td><td>All Phases</td><td style="color:var(--gold)">★★★★★</td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Manage all contractors and suppliers in one place with ratings and phase assignments.</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-video-wrap"><div class="demo-video-label">📹 Product Demo Video</div><div class="video-placeholder"><div class="video-play-btn">▶</div><div class="video-info"><p>IBA BuildSmart — Full Demo</p><span>Add video to assets/videos/buildsmart-demo.mp4</span></div></div></div>
+          <div class="demo-footer"><button class="demo-btn" onclick="demoBack()">← Previous</button><button class="demo-btn primary" onclick="demoNext()">Next Screen →</button><button class="demo-btn" onclick="go('contact',null)">Request Full Demo ↗</button></div>
+        </div>
+
+        <!-- ── INNVUE ── -->
+        <div class="demo-panel" id="p-innvue">
+          <div class="demo-top">
+            <div class="demo-side">
+              <span class="demo-side-title">InnVue</span>
+              <ul class="demo-screen-nav" id="n-innvue">
+                <li class="active" onclick="showScreen('innvue',0,this)"><span class="dot"></span>Front Desk</li>
+                <li onclick="showScreen('innvue',1,this)"><span class="dot"></span>Room Availability</li>
+                <li onclick="showScreen('innvue',2,this)"><span class="dot"></span>Guest Check-In</li>
+                <li onclick="showScreen('innvue',3,this)"><span class="dot"></span>Housekeeping</li>
+              </ul>
+            </div>
+            <div class="demo-body">
+              <div class="screen active" id="innvue-0">
+                <div class="screen-hdr"><span class="screen-title">Front Desk Overview</span><span class="screen-badge">Live Status</span></div>
+                <div class="mock-ui">
+                  <div class="mock-stats"><div class="mock-stat"><div class="n">28</div><div class="l">Occupied Rooms</div></div><div class="mock-stat"><div class="n">12</div><div class="l">Available</div></div><div class="mock-stat"><div class="n">5</div><div class="l">Check-outs Today</div></div></div>
+                  <div class="mock-row"><div class="mock-label">Occupancy Rate</div><div class="bar-wrap"><div class="bar" style="width:70%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">70%</span></div>
+                  <div class="mock-row"><div class="mock-label">Tonight's Revenue</div><div class="mock-val" style="color:var(--primary);font-weight:700">GH&#8373;8,400</div></div>
+                </div>
+                <div class="screen-desc">Everything your front desk needs — occupancy, revenue, arrivals and departures, live.</div>
+              </div>
+              <div class="screen" id="innvue-1">
+                <div class="screen-hdr"><span class="screen-title">Room Availability</span><span class="screen-badge">This Week</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Room</th><th>Type</th><th>Tonight</th><th>Tomorrow</th><th>Rate/Night</th></tr></thead><tbody>
+                    <tr><td>101</td><td>Standard</td><td><span class="pill pill-red">Occupied</span></td><td><span class="pill pill-green">Free</span></td><td>GH&#8373;350</td></tr>
+                    <tr><td>102</td><td>Standard</td><td><span class="pill pill-green">Free</span></td><td><span class="pill pill-green">Free</span></td><td>GH&#8373;350</td></tr>
+                    <tr><td>201</td><td>Deluxe</td><td><span class="pill pill-red">Occupied</span></td><td><span class="pill pill-blue">Booked</span></td><td>GH&#8373;550</td></tr>
+                    <tr><td>202</td><td>Suite</td><td><span class="pill pill-green">Free</span></td><td><span class="pill pill-green">Free</span></td><td>GH&#8373;900</td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Instant room availability grid — book any free room in seconds directly from this screen.</div>
+              </div>
+              <div class="screen" id="innvue-2">
+                <div class="screen-hdr"><span class="screen-title">Guest Check-In</span><span class="screen-badge">New Arrival</span></div>
+                <div class="mock-ui">
+                  <div class="mock-row"><div class="mock-label">Guest Name</div><div class="mock-val">Mr. Kwabena Acheampong</div></div>
+                  <div class="mock-row"><div class="mock-label">Room</div><div class="mock-val">Room 102 — Standard</div></div>
+                  <div class="mock-row"><div class="mock-label">Check-in</div><div class="mock-val">Today, 2:00 PM</div></div>
+                  <div class="mock-row"><div class="mock-label">Check-out</div><div class="mock-val">Thursday, 12:00 PM (3 nights)</div></div>
+                  <div class="mock-row"><div class="mock-label">Total Bill</div><div class="mock-val" style="color:var(--primary);font-weight:700">GH&#8373;1,050</div><button class="mock-btn" style="margin-left:auto">Confirm Check-in</button></div>
+                </div>
+                <div class="screen-desc">Seamless check-in in under 60 seconds with returning guest history remembered.</div>
+              </div>
+              <div class="screen" id="innvue-3">
+                <div class="screen-hdr"><span class="screen-title">Housekeeping Board</span><span class="screen-badge">Room Status</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Room</th><th>Status</th><th>Assigned To</th><th>Priority</th></tr></thead><tbody>
+                    <tr><td>101</td><td><span class="pill pill-yellow">Cleaning</span></td><td>Adwoa (Cleaner)</td><td>High</td></tr>
+                    <tr><td>103</td><td><span class="pill pill-green">Ready</span></td><td>—</td><td>—</td></tr>
+                    <tr><td>205</td><td><span class="pill pill-red">Needs Cleaning</span></td><td>Unassigned</td><td>Urgent</td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Housekeeping managed digitally — staff assignments, room readiness and priorities coordinated.</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-video-wrap"><div class="demo-video-label">📹 Product Demo Video</div><div class="video-placeholder"><div class="video-play-btn">▶</div><div class="video-info"><p>IBA InnVue — Full Demo</p><span>Add video to assets/videos/innvue-demo.mp4</span></div></div></div>
+          <div class="demo-footer"><button class="demo-btn" onclick="demoBack()">← Previous</button><button class="demo-btn primary" onclick="demoNext()">Next Screen →</button><button class="demo-btn" onclick="go('contact',null)">Request Full Demo ↗</button></div>
+        </div>
+
+        <!-- ── TRANSITFLOW ── -->
+        <div class="demo-panel" id="p-transitflow">
+          <div class="demo-top">
+            <div class="demo-side">
+              <span class="demo-side-title">TransitFlow</span>
+              <ul class="demo-screen-nav" id="n-transitflow">
+                <li class="active" onclick="showScreen('transitflow',0,this)"><span class="dot"></span>Fleet Overview</li>
+                <li onclick="showScreen('transitflow',1,this)"><span class="dot"></span>Route Management</li>
+                <li onclick="showScreen('transitflow',2,this)"><span class="dot"></span>Driver Assignment</li>
+                <li onclick="showScreen('transitflow',3,this)"><span class="dot"></span>Maintenance Log</li>
+              </ul>
+            </div>
+            <div class="demo-body">
+              <div class="screen active" id="transitflow-0">
+                <div class="screen-hdr"><span class="screen-title">Fleet Dashboard</span><span class="screen-badge">Operations Live</span></div>
+                <div class="mock-ui">
+                  <div class="mock-stats"><div class="mock-stat"><div class="n">24</div><div class="l">Total Vehicles</div></div><div class="mock-stat"><div class="n">19</div><div class="l">Active Today</div></div><div class="mock-stat"><div class="n">142</div><div class="l">Trips Today</div></div></div>
+                  <div class="mock-row"><div class="mock-label">Fleet Active Rate</div><div class="bar-wrap"><div class="bar" style="width:79%"></div></div><span style="font-size:.7rem;color:var(--text-muted)">79%</span></div>
+                  <div class="mock-row"><div class="mock-label">In Maintenance</div><div class="mock-val" style="color:#B7770D;font-weight:700">3 vehicles</div></div>
+                </div>
+                <div class="screen-desc">Your entire transport operation at a glance — active vehicles, trip counts, and fleet health.</div>
+              </div>
+              <div class="screen" id="transitflow-1">
+                <div class="screen-hdr"><span class="screen-title">Route Management</span><span class="screen-badge">Active Routes</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Route</th><th>Distance</th><th>Vehicles</th><th>Status</th></tr></thead><tbody>
+                    <tr><td>Accra → Kumasi</td><td>248 km</td><td>4</td><td><span class="pill pill-green">Active</span></td></tr>
+                    <tr><td>Accra → Cape Coast</td><td>165 km</td><td>3</td><td><span class="pill pill-green">Active</span></td></tr>
+                    <tr><td>Accra → Tamale</td><td>598 km</td><td>2</td><td><span class="pill pill-yellow">Reduced</span></td></tr>
+                    <tr><td>Kumasi → Takoradi</td><td>192 km</td><td>2</td><td><span class="pill pill-green">Active</span></td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">All intercity routes managed centrally — assign vehicles, adjust schedules and monitor performance.</div>
+              </div>
+              <div class="screen" id="transitflow-2">
+                <div class="screen-hdr"><span class="screen-title">Driver Assignment</span><span class="screen-badge">Today's Roster</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Driver</th><th>Vehicle</th><th>Route</th><th>Departure</th></tr></thead><tbody>
+                    <tr><td>Emmanuel Tetteh</td><td>GR-4421-22</td><td>Accra → Kumasi</td><td>6:00 AM</td></tr>
+                    <tr><td>Kwame Asare</td><td>GR-1180-21</td><td>Accra → Cape Coast</td><td>7:00 AM</td></tr>
+                    <tr><td>Yaw Appiah</td><td>GW-9921-23</td><td>Accra → Kumasi</td><td>8:00 AM</td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Driver and conductor assignments managed digitally — departures and vehicle pairing organized.</div>
+              </div>
+              <div class="screen" id="transitflow-3">
+                <div class="screen-hdr"><span class="screen-title">Maintenance Log</span><span class="screen-badge">Vehicle Health</span></div>
+                <div class="mock-ui">
+                  <table class="mock-table"><thead><tr><th>Vehicle</th><th>Issue</th><th>Workshop</th><th>Est. Return</th></tr></thead><tbody>
+                    <tr><td>GR-7712-20</td><td>Brake service</td><td>Accra Motors</td><td>Tomorrow</td></tr>
+                    <tr><td>GW-4420-19</td><td>Engine overhaul</td><td>Kumasi Auto</td><td>5 days</td></tr>
+                    <tr><td>GR-0023-22</td><td>Tyre change</td><td>In-house</td><td>Today PM</td></tr>
+                  </tbody></table>
+                </div>
+                <div class="screen-desc">Every vehicle's maintenance history tracked — minimize breakdowns and fleet downtime.</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-video-wrap"><div class="demo-video-label">📹 Product Demo Video</div><div class="video-placeholder"><div class="video-play-btn">▶</div><div class="video-info"><p>IBA TransitFlow — Full Demo</p><span>Add video to assets/videos/transitflow-demo.mp4</span></div></div></div>
+          <div class="demo-footer"><button class="demo-btn" onclick="demoBack()">← Previous</button><button class="demo-btn primary" onclick="demoNext()">Next Screen →</button><button class="demo-btn" onclick="go('contact',null)">Request Full Demo ↗</button></div>
+        </div>
+
+      </div><!-- end demo-stage -->
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       TEAM SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-team" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head">
+        <h2>Our Team</h2>
+        <p>The people behind the IBA Suite — committed, skilled, and African.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <p class="team-section-label">Leadership &amp; Directors</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo-wrap">
+            <img src="assets/team/founder.jpg" alt="Founder" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>founder.jpg</span></div>
+          </div>
+          <div class="team-info">
+            <div class="team-badge">Founder &amp; CEO</div>
+            <h4>Immanuel Boanerge Agbemabiase</h4>
+            <div class="role">Founder &amp; Chief Executive Officer</div>
+            <div class="bio">Creator of the IBA Suite. Visionary behind A. Elnerge Technologies.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo-wrap"><img src="assets/team/director1.jpg" alt="Director 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>director1.jpg</span></div></div>
+          <div class="team-info"><h4>Director Name</h4><div class="role">Role / Title</div><div class="bio">Add photo as assets/team/director1.jpg and update name and bio here.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo-wrap"><img src="assets/team/director2.jpg" alt="Director 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>director2.jpg</span></div></div>
+          <div class="team-info"><h4>Director Name</h4><div class="role">Role / Title</div><div class="bio">Add photo as assets/team/director2.jpg and update name and bio here.</div></div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo-wrap"><img src="assets/team/director3.jpg" alt="Director 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>director3.jpg</span></div></div>
+          <div class="team-info"><h4>Director Name</h4><div class="role">Role / Title</div><div class="bio">Add photo as assets/team/director3.jpg and update name and bio here.</div></div>
+        </div>
+      </div>
+
+      <p class="team-section-label">Our Staff</p>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-photo-wrap"><img src="assets/team/staff1.jpg" alt="Staff 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>staff1.jpg</span></div></div><div class="team-info"><h4>Staff Name</h4><div class="role">Role / Department</div><div class="bio">Add photo as assets/team/staff1.jpg and update details.</div></div></div>
+        <div class="team-card"><div class="team-photo-wrap"><img src="assets/team/staff2.jpg" alt="Staff 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>staff2.jpg</span></div></div><div class="team-info"><h4>Staff Name</h4><div class="role">Role / Department</div><div class="bio">Add photo as assets/team/staff2.jpg and update details.</div></div></div>
+        <div class="team-card"><div class="team-photo-wrap"><img src="assets/team/staff3.jpg" alt="Staff 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>staff3.jpg</span></div></div><div class="team-info"><h4>Staff Name</h4><div class="role">Role / Department</div><div class="bio">Add photo as assets/team/staff3.jpg and update details.</div></div></div>
+        <div class="team-card"><div class="team-photo-wrap"><img src="assets/team/staff4.jpg" alt="Staff 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="team-photo-placeholder" style="display:none;"><div class="big">👤</div><span>staff4.jpg</span></div></div><div class="team-info"><h4>Staff Name</h4><div class="role">Role / Department</div><div class="bio">Add photo as assets/team/staff4.jpg and update details.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       GALLERY SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-gallery" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head">
+        <h2>Media Gallery</h2>
+        <p>Photos, videos, and product showcases from A. Elnerge Technologies.</p>
+        <div class="sec-divider"></div>
+      </div>
+
+      <p class="video-section-label">Photo Gallery</p>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="assets/gallery/photo1.jpg" alt="Gallery 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="gallery-placeholder" style="display:none;"><div class="big">🖼️</div><span>photo1.jpg</span></div></div>
+        <div class="gallery-item"><img src="assets/gallery/photo2.jpg" alt="Gallery 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="gallery-placeholder" style="display:none;"><div class="big">🖼️</div><span>photo2.jpg</span></div></div>
+        <div class="gallery-item"><img src="assets/gallery/photo3.jpg" alt="Gallery 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="gallery-placeholder" style="display:none;"><div class="big">🖼️</div><span>photo3.jpg</span></div></div>
+        <div class="gallery-item"><img src="assets/gallery/photo4.jpg" alt="Gallery 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="gallery-placeholder" style="display:none;"><div class="big">🖼️</div><span>photo4.jpg</span></div></div>
+        <div class="gallery-item"><img src="assets/gallery/photo5.jpg" alt="Gallery 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="gallery-placeholder" style="display:none;"><div class="big">🖼️</div><span>photo5.jpg</span></div></div>
+        <div class="gallery-item"><img src="assets/gallery/photo6.jpg" alt="Gallery 6" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="gallery-placeholder" style="display:none;"><div class="big">🖼️</div><span>photo6.jpg</span></div></div>
+      </div>
+
+      <div class="video-section">
+        <p class="video-section-label">Demo Videos</p>
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-thumb">
+              <!-- To embed YouTube: uncomment the iframe and add your video ID -->
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+              <div class="video-thumb-placeholder"><div class="play">▶</div><p>Company Introduction</p></div>
+            </div>
+            <div class="video-card-info"><h4>A. Elnerge Technologies — Company Overview</h4><p>Introduction to the IBA Suite and our mission across Africa.</p></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+              <div class="video-thumb-placeholder"><div class="play">▶</div><p>IBA BuildSmart Demo</p></div>
+            </div>
+            <div class="video-card-info"><h4>IBA BuildSmart — Material Calculator Demo</h4><p>See how BuildSmart calculates materials for any construction project.</p></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder"><div class="play">▶</div><p>IBA TradeDesk Demo</p></div>
+            </div>
+            <div class="video-card-info"><h4>IBA TradeDesk — POS &amp; Stockroom Demo</h4><p>Full walkthrough of the retail management system.</p></div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder"><div class="play">▶</div><p>IBA EduClass Demo</p></div>
+            </div>
+            <div class="video-card-info"><h4>IBA EduClass — School Management Demo</h4><p>From enrollment to report cards — the full school system.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       WHY ELNERGE SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-why" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head"><h2>Why Choose Elnerge</h2><p>The four pillars that make the IBA Suite different.</p><div class="sec-divider"></div></div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-num">01</div><h3>Specialized</h3><p>Not generic tools. Every IBA product is purpose-built for one industry — solving real problems instead of creating new ones.</p></div>
+        <div class="why-card"><div class="why-num">02</div><h3>Intelligent</h3><p>Automation, alerts, and analysis are built into every workflow — so your software works as hard as you do.</p></div>
+        <div class="why-card"><div class="why-num">03</div><h3>Personal</h3><p>The founder's name is in the company name. A level of personal commitment no generic software house can match.</p></div>
+        <div class="why-card"><div class="why-num">04</div><h3>African-First</h3><p>Built for Ghanaian cedis, local suppliers, African school systems — designed from the ground up for African business realities.</p></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       INDUSTRIES SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-industries" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head"><h2>Industries We Serve</h2><p>From the storefront to the sanctuary — across Africa.</p><div class="sec-divider"></div></div>
+      <div class="ind-grid">
+        <div class="ind-card"><span class="em">🛒</span><div class="nm">Retail &amp; Commerce</div></div>
+        <div class="ind-card"><span class="em">🎓</span><div class="nm">Education</div></div>
+        <div class="ind-card"><span class="em">⛪</span><div class="nm">Faith &amp; Community</div></div>
+        <div class="ind-card"><span class="em">🏗️</span><div class="nm">Construction</div></div>
+        <div class="ind-card"><span class="em">🏨</span><div class="nm">Hospitality</div></div>
+        <div class="ind-card"><span class="em">🚌</span><div class="nm">Transport</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CONTACT SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-contact" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head"><h2>Contact Us</h2><p>Ready to run your business intelligently? Let's talk.</p><div class="sec-divider"></div></div>
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h3>Let's build something intelligent together.</h3>
+          <p>Whether you're a retailer in Accra, a school in Kumasi, or a construction firm in Takoradi — there's an IBA product made for your business.</p>
+          <div class="contact-detail"><strong>Domain</strong> aelnerge.tech</div>
+          <div class="contact-detail"><strong>Twitter/X</strong> @aelnerge</div>
+          <div class="contact-detail"><strong>LinkedIn</strong> @aelnerge</div>
+          <div class="contact-detail"><strong>Instagram</strong> @aelnerge</div>
+          <div class="contact-detail"><strong>Location</strong> Accra, Ghana</div>
+          <a class="btn-whatsapp-large" href="https://wa.me/233XXXXXXXXX" target="_blank" rel="noopener noreferrer">
+            💬 Chat with us on WhatsApp
+          </a>
+          <div class="contact-quote">
+            <p>"Every application we build carries the personal commitment of a founder who put his name into the very name of the company."</p>
+            <span>— Immanuel Boanerge Agbemabiase, Founder</span>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Book a Demo</h3>
+          <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your full name" id="f-name"></div>
+          <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com" id="f-email"></div>
+          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+233 XX XXX XXXX" id="f-phone"></div>
+          <div class="form-field"><label for="f-industry">Your Industry</label>
+            <select id="f-industry">
+              <option value="">Select your industry</option>
+              <option>Retail &amp; Commerce</option>
+              <option>Education</option>
+              <option>Faith &amp; Community</option>
+              <option>Construction</option>
+              <option>Hospitality</option>
+              <option>Transport</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field"><label>Message</label><textarea placeholder="Tell us about your business..." id="f-message"></textarea></div>
+          <button class="btn-submit" onclick="submitForm()">Send Request →</button>
+          <div class="form-success" id="form-success">✅ Thank you! We will contact you within 24 hours.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo/logo.png" alt="A. Elnerge Technologies">
+        <p>A. Elnerge Technologies — creators of the IBA Suite. Intelligent Business Applications for Africa's industries. Founded by Immanuel Boanerge Agbemabiase.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <a onclick="go('demo',null);switchDemo('tradedesk')">IBA TradeDesk</a>
+        <a onclick="go('demo',null);switchDemo('educlass')">IBA EduClass</a>
+        <a onclick="go('demo',null);switchDemo('sanctuary')">IBA Sanctuary</a>
+        <a onclick="go('demo',null);switchDemo('buildsmart')">IBA BuildSmart</a>
+        <a onclick="go('demo',null);switchDemo('innvue')">IBA InnVue</a>
+        <a onclick="go('demo',null);switchDemo('transitflow')">IBA TransitFlow</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a onclick="go('story',null)">Our Story</a>
+        <a onclick="go('team',null)">Our Team</a>
+        <a onclick="go('gallery',null)">Media Gallery</a>
+        <a onclick="go('why',null)">Why Elnerge</a>
+        <a onclick="go('contact',null)">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <a href="https://wa.me/233595309009" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <a href="#">@aelnerge on X</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">aelnerge.tech</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright">© <span id="yr"></span> A. Elnerge Technologies. All rights reserved.</span>
+      <span class="tagline">IBA · INTELLIGENT BUSINESS APPLICATIONS</span>
+    </div>
+  </footer>
+
+</div><!-- end #main -->
+
+
+<!-- ══════════════════════════════════════
+     AI CHAT WIDGET
+═══════════════════════════════════════ -->
+<div id="chat-widget">
+  <div class="chat-window" id="chat-window">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar">E</div>
+        <div>
+          <div class="chat-name">Elnerge AI Assistant</div>
+          <div class="chat-status">Online — powered by Claude</div>
+        </div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="msg ai">
+        <div class="msg-avatar">E</div>
+        <div class="msg-bubble">Hello! I'm the Elnerge AI assistant. I know everything about the IBA Suite. How can I help you today?</div>
+      </div>
+    </div>
+    <div class="chat-chips" id="chat-chips">
+      <span class="chip" onclick="sendChip(this)">Which product suits my business?</span>
+      <span class="chip" onclick="sendChip(this)">How does BuildSmart work?</span>
+      <span class="chip" onclick="sendChip(this)">What is IBA TradeDesk?</span>
+      <span class="chip" onclick="sendChip(this)">Tell me about IBA Sanctuary</span>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Ask anything about Elnerge...">
+      <button id="chat-send" onclick="sendMessage()">➤</button>
+    </div>
+  </div>
+  <button class="chat-fab" onclick="toggleChat()" title="AI Assistant">🤖</button>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     JS FILES — One file per concern
+════════════════════════════════════════════ -->
+<script src="js/navigation.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/chat.js"></script>
+
+<script>
+  // ── INIT ──
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  calcMaterials();
+
+  // ── CONTACT FORM SUBMISSION ──
+  async function submitForm() {
+    const body = {
+      name:     document.getElementById('f-name').value,
+      email:    document.getElementById('f-email').value,
+      phone:    document.getElementById('f-phone').value,
+      industry: document.getElementById('f-industry').value,
+      message:  document.getElementById('f-message').value,
+    };
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('form-success').classList.add('visible');
+      }
+    } catch (e) {
+      console.error('Form submission error:', e);
+    }
+  }
+</script>
+
+</body>
+</html>
