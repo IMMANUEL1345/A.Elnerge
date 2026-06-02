@@ -105,3 +105,48 @@ window.addEventListener('load', () => {
   // Init calculator
   calcMaterials();
 });
+
+
+// ── HERO SLIDESHOW ──
+let currentSlide   = 0;
+const totalSlides  = 5;
+let slideshowTimer = null;
+
+function goToSlide(index) {
+  // Remove active from current slide and dot
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+
+  // Set new active
+  currentSlide = index;
+  if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+  if (dots[currentSlide])   dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % totalSlides);
+}
+
+function startSlideshow() {
+  // Auto advance every 3 seconds
+  slideshowTimer = setInterval(nextSlide, 3000);
+}
+
+function stopSlideshow() {
+  if (slideshowTimer) clearInterval(slideshowTimer);
+}
+
+// Start slideshow when page loads
+window.addEventListener('load', () => {
+  startSlideshow();
+
+  // Pause on hover
+  const wrap = document.querySelector('.hero-slideshow-wrap');
+  if (wrap) {
+    wrap.addEventListener('mouseenter', stopSlideshow);
+    wrap.addEventListener('mouseleave', startSlideshow);
+  }
+});
