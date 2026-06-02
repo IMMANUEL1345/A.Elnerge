@@ -6,10 +6,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "npx nest build",
-    "start": "node dist/main",
-    "start:dev": "npx nest start --watch",
-    "vercel-build": "npx nest build"
+    "build": "echo 'No build needed'",
+    "start": "npx serve public",
+    "vercel-build": "echo 'No build needed'"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
