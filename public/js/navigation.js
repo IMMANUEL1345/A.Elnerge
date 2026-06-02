@@ -109,7 +109,7 @@ window.addEventListener('load', () => {
 
 // ── HERO SLIDESHOW ──
 let currentSlide   = 0;
-const totalSlides  = 5;
+const totalSlides  = 8;
 let slideshowTimer = null;
 
 function goToSlide(index) {
