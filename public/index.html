@@ -51,6 +51,9 @@
     <a class="sidebar-link" onclick="go('story', this)">
       <span class="icon">📖</span> Our Story
     </a>
+    <a class="sidebar-link" onclick="go('services', this)">
+      <span class="icon">🔧</span> Our Services
+    </a>
   </div>
 
   <div class="sidebar-section">
@@ -356,6 +359,138 @@
         </div>
 
       </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════ -->
+  <div id="sec-services" class="page-section">
+    <div class="content-wrap">
+      <div class="section-head">
+        <h2>Our Services</h2>
+        <p>Beyond software — we provide complete technology solutions for businesses across Africa.</p>
+        <div class="sec-divider"></div>
+      </div>
+      <div class="cards-grid">
+
+        <!-- Laptop Repair -->
+        <div class="card">
+          <div class="card-product-img-placeholder" style="display:flex;">🔧</div>
+          <div class="card-icon-wrap">🔧</div>
+          <div class="card-industry">Hardware Support</div>
+          <h3>Laptop <span>Repair</span></h3>
+          <div class="card-tagline">Fast. Reliable. Professional.</div>
+          <ul class="card-features">
+            <li>Diagnosis and troubleshooting</li>
+            <li>Screen, keyboard and battery replacement</li>
+            <li>Motherboard and hardware repairs</li>
+            <li>OS installation and data recovery</li>
+          </ul>
+          <button class="card-btn" onclick="go('contact', null)">Get a Quote →</button>
+        </div>
+
+        <!-- Laptop Sales -->
+        <div class="card">
+          <div class="card-product-img-placeholder" style="display:flex;">💻</div>
+          <div class="card-icon-wrap">💻</div>
+          <div class="card-industry">Sales & Supply</div>
+          <h3>Laptops & <span>Accessories</span></h3>
+          <div class="card-tagline">Quality devices at the right price.</div>
+          <ul class="card-features">
+            <li>New and certified refurbished laptops</li>
+            <li>Laptop bags, chargers and peripherals</li>
+            <li>Keyboards, mice, monitors and more</li>
+            <li>Bulk supply for offices and schools</li>
+          </ul>
+          <button class="card-btn" onclick="go('contact', null)">Enquire Now →</button>
+        </div>
+
+        <!-- Office Setup -->
+        <div class="card">
+          <div class="card-product-img-placeholder" style="display:flex;">🖥️</div>
+          <div class="card-icon-wrap">🖥️</div>
+          <div class="card-industry">Office Technology</div>
+          <h3>Office <span>Setup</span></h3>
+          <div class="card-tagline">Complete office technology solutions.</div>
+          <ul class="card-features">
+            <li>Workstation setup and configuration</li>
+            <li>Printer and scanner installation</li>
+            <li>Software installation and licensing</li>
+            <li>IT infrastructure planning</li>
+          </ul>
+          <button class="card-btn" onclick="go('contact', null)">Get a Quote →</button>
+        </div>
+
+        <!-- CCTV Installation -->
+        <div class="card">
+          <div class="card-product-img-placeholder" style="display:flex;">📷</div>
+          <div class="card-icon-wrap">📷</div>
+          <div class="card-industry">Security Systems</div>
+          <h3>CCTV <span>Installation</span></h3>
+          <div class="card-tagline">Secure your premises intelligently.</div>
+          <ul class="card-features">
+            <li>Indoor and outdoor camera installation</li>
+            <li>HD and IP camera systems</li>
+            <li>Remote monitoring setup</li>
+            <li>DVR/NVR configuration and storage</li>
+          </ul>
+          <button class="card-btn" onclick="go('contact', null)">Get a Quote →</button>
+        </div>
+
+        <!-- Networking -->
+        <div class="card">
+          <div class="card-product-img-placeholder" style="display:flex;">🌐</div>
+          <div class="card-icon-wrap">🌐</div>
+          <div class="card-industry">Networking</div>
+          <h3>Network <span>Setup</span></h3>
+          <div class="card-tagline">Fast, stable and secure connections.</div>
+          <ul class="card-features">
+            <li>LAN and WiFi network installation</li>
+            <li>Router and switch configuration</li>
+            <li>Network security and firewall setup</li>
+            <li>Structured cabling and maintenance</li>
+          </ul>
+          <button class="card-btn" onclick="go('contact', null)">Get a Quote →</button>
+        </div>
+
+        <!-- More Services -->
+        <div class="card">
+          <div class="card-product-img-placeholder" style="display:flex;">⚡</div>
+          <div class="card-icon-wrap">⚡</div>
+          <div class="card-industry">General IT</div>
+          <h3>More <span>Services</span></h3>
+          <div class="card-tagline">Your complete IT partner in Ghana.</div>
+          <ul class="card-features">
+            <li>IT consultancy and advisory</li>
+            <li>Software training and support</li>
+            <li>Website design and hosting</li>
+            <li>Custom technology solutions</li>
+          </ul>
+          <button class="card-btn" onclick="go('contact', null)">Contact Us →</button>
+        </div>
+
+      </div>
+
+      <!-- Services CTA Banner -->
+      <div style="margin-top:2.5rem;background:linear-gradient(135deg,#0F3260,#0E9B8A);border-radius:10px;padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
+        <div>
+          <h3 style="font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.4rem;">Need a technology solution for your business?</h3>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.75);margin:0;">Talk to us today. We serve businesses across Ghana.</p>
+        </div>
+        <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+          <a href="https://wa.me/233595309009" target="_blank"
+             style="background:#25D366;color:#fff;padding:0.7rem 1.5rem;border-radius:6px;font-size:0.82rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">
+            💬 WhatsApp Us
+          </a>
+          <button onclick="go('contact', null)"
+                  style="background:#fff;color:#0F3260;border:none;padding:0.7rem 1.5rem;border-radius:6px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;">
+            Get a Quote
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1048,6 +1183,7 @@
       <div class="footer-col">
         <h5>Company</h5>
         <a onclick="go('story',null)">Our Story</a>
+        <a onclick="go('services',null)">Our Services</a>
         <a onclick="go('team',null)">Our Team</a>
         <a onclick="go('gallery',null)">Media Gallery</a>
         <a onclick="go('why',null)">Why Elnerge</a>

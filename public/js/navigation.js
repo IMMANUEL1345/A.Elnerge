@@ -7,6 +7,7 @@ const sectionMap = {
   home:       'Home',
   products:   'IBA Suite',
   story:      'Our Story',
+  services:   'Our Services',
   demo:       'Interactive Demo',
   team:       'Our Team',
   gallery:    'Media Gallery',
