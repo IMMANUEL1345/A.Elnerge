@@ -119,7 +119,7 @@
       </div>
     </div>
     <div class="topnav-right">
-      <a class="btn-whatsapp" href="https://wa.me/233XXXXXXXXX" target="_blank">
+      <a class="btn-whatsapp" href="https://wa.me/233595309009" target="_blank">
         💬 WhatsApp Us
       </a>
       <button class="btn-topnav" onclick="go('contact', null)">Book a Demo</button>
@@ -991,7 +991,7 @@
           <div class="contact-detail"><strong>LinkedIn</strong> @aelnerge</div>
           <div class="contact-detail"><strong>Instagram</strong> @aelnerge</div>
           <div class="contact-detail"><strong>Location</strong> Accra, Ghana</div>
-          <a class="btn-whatsapp-large" href="https://wa.me/233XXXXXXXXX" target="_blank">
+          <a class="btn-whatsapp-large" href="https://wa.me/233595309009" target="_blank">
             💬 Chat with us on WhatsApp
           </a>
           <div class="contact-quote">
@@ -1055,7 +1055,7 @@
       </div>
       <div class="footer-col">
         <h5>Connect</h5>
-        <a href="https://wa.me/233XXXXXXXXX" target="_blank">💬 WhatsApp</a>
+        <a href="https://wa.me/233595309009" target="_blank">💬 WhatsApp</a>
         <a href="#">@aelnerge on X</a>
         <a href="#">LinkedIn</a>
         <a href="#">Instagram</a>
@@ -1119,25 +1119,58 @@
 <script>
   // ── CONTACT FORM SUBMISSION ──
   async function submitForm() {
-    const body = {
-      name:     document.getElementById('f-name').value,
-      email:    document.getElementById('f-email').value,
-      phone:    document.getElementById('f-phone').value,
-      industry: document.getElementById('f-industry').value,
-      message:  document.getElementById('f-message').value,
-    };
+
+    const name     = document.getElementById('f-name').value.trim();
+    const email    = document.getElementById('f-email').value.trim();
+    const phone    = document.getElementById('f-phone').value.trim();
+    const industry = document.getElementById('f-industry').value;
+    const message  = document.getElementById('f-message').value.trim();
+
+    // Basic validation
+    if (!name || !email || !industry) {
+      alert('Please fill in your name, email and industry.');
+      return;
+    }
+
+    // Update button state
+    const btn = document.querySelector('.btn-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
     try {
       const res = await fetch('/api/contact', {
-        method: 'POST',
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
+        body:    JSON.stringify({ name, email, phone, industry, message }),
       });
+
       const data = await res.json();
+
       if (data.success) {
-        document.getElementById('form-success').classList.add('visible');
+        // Show success message
+        const success = document.getElementById('form-success');
+        if (success) success.classList.add('visible');
+
+        // Clear the form
+        document.getElementById('f-name').value     = '';
+        document.getElementById('f-email').value    = '';
+        document.getElementById('f-phone').value    = '';
+        document.getElementById('f-industry').value = '';
+        document.getElementById('f-message').value  = '';
+
+        btn.textContent = '✓ Sent!';
+      } else {
+        btn.textContent = originalText;
+        btn.disabled    = false;
+        alert('Something went wrong. Please try again or WhatsApp us directly.');
       }
+
     } catch (e) {
-      console.error('Form submission error:', e);
+      console.error('Form error:', e);
+      btn.textContent = originalText;
+      btn.disabled    = false;
+      alert('Could not send. Please check your connection or WhatsApp us directly.');
     }
   }
 </script>

@@ -3,13 +3,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ContactModule } from './contact/contact.module';
 
 @Module({
   imports: [
-    // Serve the public folder as static assets
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
+    ContactModule,
   ],
   controllers: [AppController],
   providers: [AppService],
