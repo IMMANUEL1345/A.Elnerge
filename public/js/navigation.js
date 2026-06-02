@@ -109,7 +109,7 @@ window.addEventListener('load', () => {
 
 // ── HERO SLIDESHOW ──
 let currentSlide   = 0;
-const totalSlides  = 8;
+const totalSlides  = 10;
 let slideshowTimer = null;
 
 function goToSlide(index) {
@@ -132,7 +132,7 @@ function nextSlide() {
 
 function startSlideshow() {
   // Auto advance every 3 seconds
-  slideshowTimer = setInterval(nextSlide, 3000);
+  slideshowTimer = setInterval(nextSlide, 4000);
 }
 
 function stopSlideshow() {
