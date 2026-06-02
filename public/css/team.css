@@ -38,7 +38,7 @@
 /* ── PHOTO ── */
 .team-photo-wrap {
   width: 100%;
-  height: 220px;
+  height: 260px;
   overflow: hidden;
   background: var(--bg2);
   position: relative;
@@ -48,30 +48,36 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center top;
   display: block;
 }
 
 .team-photo-placeholder {
-  width: 100%;
-  height: 100%;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 3px solid var(--border);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--text-muted);
   gap: 0.3rem;
+  flex-shrink: 0;
 }
 
 .team-photo-placeholder .big {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .team-photo-placeholder span {
-  font-size: 0.62rem;
+  font-size: 0.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
+  text-align: center;
+  padding: 0 0.5rem;
 }
 
 /* ── INFO ── */
